@@ -37,7 +37,6 @@ const App = () => {
       <AnimatePresence initial={false} exitBeforeEnter onExitComplete={() => {
          // if (typeof window !== 'undefined') {
             // window.scrollTo({ top: 0 })
-            // alert(222)
          // }
       }}>
          <Routes key={location.pathname} location={location} >
