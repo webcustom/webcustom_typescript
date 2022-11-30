@@ -27,7 +27,6 @@ import {inputSearchAutofocusAction} from "./redux/projects-reducer";
 // const ProjectDetailContainer = React.lazy(() => import('./components/Projects/Project/ProjectDetail/ProjectDetailContainer'));
 
 
-//asdf
 
 const App = () => {
    const location = useLocation();
