@@ -1,10 +1,14 @@
 import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import projectsReducer from "./projects-reducer";
+import contactsReducer from "./contacts-reducer";
 import thunkMiddleware from "redux-thunk";
+// import { reducer as formReducer } from 'redux-form';
 
 
 let reducers = combineReducers({
    projectsPage: projectsReducer,
+   contactsPage: contactsReducer,
+   // form: formReducer, // когда подключаем form-reducer обязательно пишем form: ...
 });
 
 // function todos(state = [], action) {

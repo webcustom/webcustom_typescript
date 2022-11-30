@@ -1,86 +1,111 @@
-import React from 'react';
-import './App.sass';
-// import connect from "react-redux/lib/connect/connect";
-// import Provider from "react-redux/lib/components/Provider";
-import {connect, Provider} from "react-redux";
-// import {compose} from "redux";
-// import {initializedApp} from "./redux/app-reducer";
-// import BrowserRouter from "react-router-dom/modules/BrowserRouter";
-import {BrowserRouter, Route, withRouter} from "react-router-dom";
+import React, {Component, useEffect, useState} from 'react';
+import './styles/main.sass';
+
+import {connect, Provider, useDispatch, useSelector} from "react-redux";
+
+import {BrowserRouter, Route, Routes, useParams, useLocation, Outlet} from "react-router-dom";
 import store from "./redux/redux-store";
-// import withRouter from "react-router-dom";
-// import Route from "react-router-dom/es/Route";
-// import ProjectsContainer from "./components/Projects/ProjectsContainer";
-import {compose} from "redux";
+
 import {withSuspense} from "./hoc/withSuspense.js";
-import Preloader from "./components/common/Preloader/Preloader";
-import {getProjectsThunkCreator} from "./redux/projects-reducer";
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit11 <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
+// import ContactsContainer from "./components/Contacts/ContactsContainer";
+import Header from "./components/Header/Header"
+import ImageListElem from "./components/common/Lazyload/ImageListElem";
+import PageMain from "./components/PageMain/PageMain";
+import {AnimatePresence} from "framer-motion/dist/framer-motion";
+import ProjectsContainer from "./components/Projects/ProjectsContainer";
+import ProjectDetailContainer from "./components/Projects/Project/ProjectDetail/ProjectDetailContainer";
+import NotFoundPage from "./components/common/NotFoundPage/NotFoundPage";
+import SearchComponent from "./components/common/SearchComponent/SearchComponent";
+import HeaderContainer from "./components/Header/HeaderContainer";
+import Footer from "./components/common/Footer/Footer";
+import {inputSearchAutofocusAction} from "./redux/projects-reducer";
 
-const ProjectsContainer = React.lazy(() => import('./components/Projects/ProjectsContainer'));
-// const ProjectDetail = React.lazy(() => import('./components/Projects/Project/ProjectDetail/ProjectDetail'));
-// function App(){
-const App = (props) => {
-   console.log(props);
-   // console.log(userId?);
+
+
+// import hexagons from '../assets/img/hexagons.svg';
+// const ProjectsContainer = React.lazy(() => import('./components/Projects/ProjectsContainer'));
+// const ProjectDetailContainer = React.lazy(() => import('./components/Projects/Project/ProjectDetail/ProjectDetailContainer'));
+
+
+
+
+const App = () => {
+   // console.log(match)
+   const location = useLocation();
+   // debugger
+
    return(
-      <div>
-         <Route exact path="/" /*render={() => <ProjectsContainer/>}*/ render={withSuspense(ProjectsContainer)}/>
-         <Route path="/projects/:projectId" render={withSuspense(ProjectsContainer)}/>
-         {/*<Route path="/projects/:projectId" render={(props) => {*/}
-         {/*   return <React.Suspense fallback={<Preloader/>}>*/}
-         {/*      <ProjectDetail props={props}/>*/}
-         {/*   </React.Suspense>*/}
-         {/*}}/>*/}
-      </div>
-   )
+      <AnimatePresence initial={false} exitBeforeEnter onExitComplete={() => {
+         // if (typeof window !== 'undefined') {
+            // window.scrollTo({ top: 0 })
+            // alert(222)
+         // }
+      }}>
+         <Routes key={location.pathname} location={location} >
+            <Route path="/" element={<Layout/>}>
+               <Route index element={<PageMain/>}/>
+               <Route path="projects/" element={<ProjectsContainer/>}>
+                  <Route path="page/:pageNumber" element={<ProjectsContainer/>} />
+                  <Route path="cat-:catId" element={<ProjectsContainer/>} />
+                  <Route path="cat-:catId/page/:pageNumberCat" element={<ProjectsContainer/>} />
+                  <Route path="search" element={<ProjectsContainer/>}/>
+               </Route>
+               <Route path="projects/:projectId" element={<ProjectDetailContainer/>} />
 
+               {/*<Route path="projects/" element={<ProjectsContainer/>}/>*/}
+               {/*<Route path="projects/page/:pageNumber" element={<ProjectsContainer/>} />*/}
+
+               {/*<Route path="projects/page/:pageNumber" element={<ProjectsContainer/>} />*/}
+               {/*<Route path="projects/cat-:catId" element={<ProjectsContainer/>} />*/}
+               {/*<Route path="projects/cat-:catId/page/:pageNumberCat" element={<ProjectsContainer/>} />*/}
+
+
+               {/*<Route path="test-lazyload" element={<ImageListElem/>}/>*/}
+               {/*<Route path="/search" element={<SearchComponent/>}/>*/}
+               {/*<Route path="/contacts" element={withSuspense(ContactsContainer)}/>*/}
+               {/*<Route path="/contacts" element={<ContactsContainer/>}/>*/}
+               <Route path="/404" element={<NotFoundPage/>}/>
+               <Route path="*" element={<NotFoundPage/>}/>
+            </Route>
+         </Routes>
+      </AnimatePresence>
+
+   )
 }
 
 
+const Layout = () => {
 
-// return (props) => {
-//    return <React.Suspense fallback={<Preloader />}>
-//       <Component {...props} />
-//    </React.Suspense>
-// };
+   const [winMinHeight, setWinMinHeight] = useState(false);
 
+   useEffect(() => {
+      calcBrowserPanel()
+      window.addEventListener('resize', calcBrowserPanel);
+   },[winMinHeight])
 
-//
-const mapStateToProps = (state) => {
-   return{
-      projects: state.projectsPage.projects,
+   function calcBrowserPanel(){
+      setWinMinHeight(window.innerHeight)
    }
-};
+
+   return <>
+      <div className={'wrapper'} style={{minHeight: winMinHeight}}>
+         <div className="backgroundPattern"></div>
+         <div className={'body_content'}>
+            <HeaderContainer />
+            <Outlet />
+         </div>
+         <Footer/>
+      </div>
+   </>
+}
 
 
-
-
-
-let AppContainer = compose(
-   connect(mapStateToProps, {}),
-   withRouter
-)(App);
 
 
 let MainApp = () => {
   return <BrowserRouter basename={process.env.PUBLIC_URL}>
     <Provider store={store}>
-      <AppContainer />
+      <App />
     </Provider>
   </BrowserRouter>
 }

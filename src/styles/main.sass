@@ -1,0 +1,1060 @@
+@import "fonts"
+@import "vars"
+
+*::-webkit-input-placeholder
+    color: $color_2
+    opacity: .7
+
+*:-moz-placeholder
+    color: $color_2
+    opacity: .7
+
+*::-moz-placeholder
+    color: $color_2
+    opacity: .7
+
+*:-ms-input-placeholder
+    color: $color_2
+    opacity: .7
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+    color: #666
+body input:required:valid,
+body textarea:required:valid
+    color: #666
+
+
+html
+    font-size: 10px
+
+body
+    font-size: 16px
+    min-width: 320px
+    position: relative
+    line-height: 1.2
+    overflow-x: hidden
+    color: $color_1
+    display: flex
+    width: 100%
+    font-family: $jur
+    //font-family: $rob
+    &._noScroll
+        overflow: hidden
+
+
+#root
+    width: 100%
+
+*
+    box-sizing: border-box
+    outline: none
+    margin: 0
+    padding: 0
+
+
+a
+    color: inherit
+    text-decoration: none
+    &:hover
+        text-decoration: none
+    &:focus
+        outline: none
+        color: inherit
+        text-decoration: none
+
+
+
+img
+    max-width: 100%
+
+
+.contain
+    max-width: 1170px
+    padding: 0 15px
+    margin: 0 auto
+//border: 1px solid $color_2
+
+.wrapper
+    min-height: 100vh
+    margin: 0 auto
+    position: relative
+    display: flex
+    flex-direction: column
+    height: 100%
+    overflow: hidden
+    min-width: 100%
+    background-color: #2A263E
+    z-index: 0
+    box-shadow: inset 0 0px 200px 40px rgba(#0A000E, 1)
+    //&:before
+    //    content: ''
+    //    position: absolute
+    //    top: 0
+    //    height: 100px
+    //    //border: 1px solid red
+    //    width: 100%
+    //    background-image: linear-gradient(to bottom, #000 0, transparent 100% )
+    //    opacity: .3
+
+//box-shadow: inset 0 50px 100px -20px rgba($color_2, 1)
+    //&:before
+    //    content: ''
+    //    position: absolute
+    //    top: 50%
+    //    left: 50%
+    //    transform: translate(-50%, -50%)
+    //    //border-radius: 50%
+    //    display: block
+    //    width: 100%
+    //    height: 100%
+    //    z-index: 1
+    //    box-shadow: inset 0 50px 150px 50px rgba(#0A000E, 1)
+    //
+
+
+.body_content
+    flex: 1 0 auto
+    //background-color: #2A263E
+    //padding-bottom: 8rem
+    position: relative
+    padding-bottom: 40px
+    z-index: 1
+    //box-shadow: inset 0 50px 100px -20px rgba($color_2, 1)
+    //box-shadow: inset 0 50px 150px 20px rgba(#0A000E, 1)
+    transition: box-shadow 1s
+    //border: 5px solid $color_2
+    //box-shadow: none
+    //&:before
+    //    content: ''
+    //    position: absolute
+    //    top: 50%
+    //    left: 50%
+    //    transform: translate(-50%, -50%)
+    //    box-shadow: inset 0 0 150px 10px rgba($color_1, 1)
+    //    //border-radius: 50%
+    //    display: block
+    //    width: 100%
+    //    height: 100%
+    //    z-index: 9999
+    //    border-radius: 50%
+
+
+
+.backgroundPattern
+    //position: absolute
+    top: 0
+    left: 0
+    z-index: -1
+    width: 100%
+    height: 100%
+    background-image: url("../assets/img/circuit-board.svg")
+    background-size: 250px
+    opacity: .12
+    position: fixed
+
+#footer
+    //flex: 0 0 auto
+    position: absolute
+    bottom: 0
+    background-color: rgba(#000, .2) //#202328
+    width: 100%
+    margin: 0 auto
+    padding: 10px 0
+    //z-index: 1
+    .contain
+        text-align: center
+
+
+
+
+._pt10
+    padding-top: 10px
+._pb10
+    padding-bottom: 10px
+._pt15
+    padding-top: 15px
+._pb15
+    padding-bottom: 15px
+._pt20
+    padding-top: 20px
+._pb20
+    padding-bottom: 20px
+._pt30
+    padding-top: 30px
+._pb30
+    padding-bottom: 30px
+._pt40
+    padding-top: 40px
+._pb40
+    padding-bottom: 40px
+._pt50
+    padding-top: 50px
+._pb50
+    padding-bottom: 50px
+._pt60
+    padding-top: 6rem
+._pb60
+    padding-bottom: 6rem
+._pt70
+    padding-top: 7rem
+._pb70
+    padding-bottom: 7rem
+._pt80
+    padding-top: 8rem
+._pb80
+    padding-bottom: 8rem
+._pt90
+    padding-top: 9rem
+._pb90
+    padding-bottom: 9rem
+._pt100
+    padding-top: 10rem
+._pb100
+    padding-bottom: 10rem
+
+._mt5
+    margin-top: 5px
+._mb5
+    margin-bottom: 5px
+._mt10
+    margin-top: 10px
+._mb10
+    margin-bottom: 10px
+._mt15
+    margin-top: 15px
+._mb15
+    margin-bottom: 15px
+._mt20
+    margin-top: 20px
+._mb20
+    margin-bottom: 20px
+._mt30
+    margin-top: 30px
+._mb30
+    margin-bottom: 30px
+._mt40
+    margin-top: 40px
+._mb40
+    margin-bottom: 40px
+._mt50
+    margin-top: 50px
+._mb50
+    margin-bottom: 50px
+._mt60
+    margin-top: 6rem
+._mb60
+    margin-bottom: 6rem
+._mt70
+    margin-top: 7rem
+._mb70
+    margin-bottom: 7rem
+._mt80
+    margin-top: 8rem
+._mb80
+    margin-bottom: 8rem
+._mt90
+    margin-top: 9rem
+._mb90
+    margin-bottom: 9rem
+._mt100
+    margin-top: 10rem
+._mb100
+    margin-bottom: 10rem
+
+
+._center
+    text-align: center
+._right
+    text-align: right
+._centerFlex
+    display: flex
+    justify-content: center
+
+#header
+    padding: 10px 0
+    background-color: rgba(#000, .2) //#202328 //#2F2B43
+    //box-shadow: 0 5px 10px 0 rgba(#000, .1)
+    position: relative
+    z-index: 19
+    .contain
+        display: flex
+        align-items: center
+        justify-content: space-between
+    .logoCode_1
+        font-size: 2.7px
+
+
+.menu_1
+    color: $color_1
+    font-weight: 700
+    font-size: 18px
+    ul
+        display: flex
+        list-style-type: none
+    li
+        margin-right: 5rem
+        &:last-child
+            margin-right: 0
+        //    &._active
+        //        color: yellow !important
+    a
+        cursor: pointer
+        transition: color .15s
+    ._active
+        color: $color_2 !important
+        pointer-events: none
+
+.sectionAfter
+    padding-top: 5rem
+    padding-bottom: 10rem
+
+//min-height: calc(100% - 30px)
+    //border: 1px solid red
+    //display: flex
+    //width: 100%
+    //justify-content: space-between
+    //align-items: center
+    //&._main
+    //    padding-top: 0
+    //    height: calc(100% - 30px)
+    //    display: flex
+    //    align-items: center
+    //    justify-content: center
+    //    padding: 30px 0
+
+
+.title_1
+    //text-transform: uppercase
+    font-size: 3.5rem
+    font-weight: 700
+    margin-bottom: 30px
+    color: $color_2
+    text-shadow: 2px 2px 0px rgba(#000, 1)
+    
+    
+//.delayBlock
+//    height: calc(100% - 30px)
+//    border: 1px solid red
+//  opacity: 0
+//  transition: all .5s
+//  transform: scale(0)
+//  &._show
+//    opacity: 1
+//    transform: scale(1)
+
+
+
+//[data-src]
+//  border: 1px solid $color_2
+//  width: 50px
+//  height: 50px
+//  display: block
+
+
+.testImg
+    background-size: cover
+    background-position: center
+
+// Lazyload
+.lazyImg[data-src]
+    opacity: 0
+    transition: opacity .5s
+
+
+
+
+.closeIcon
+    // position: relative
+    width: 35px
+    height: 35px
+    display: block
+    position: absolute
+    right: 20px
+    top: 15px
+    display: block
+    cursor: pointer
+    transition: opacity .25s
+    stroke: $color_2
+    transition: stroke .15s
+    &:hover
+        stroke: $color_1
+        //opacity: .5
+        //&:before, &:after
+        //    background-color: $color_1
+
+    //&:before
+    //    content: ''
+    //    width: 100%
+    //    height: 2px
+    //    background: $color_2
+    //    transition: all 0.3s
+    //    backface-visibility: hidden
+    //    display: block
+    //    transform: rotate(45deg)
+    //    position: absolute
+    //    top: 50%
+    //    left: 50%
+    //    transform: translate(-50%,-50%) rotate(45deg)
+    //&:after
+    //    content: ''
+    //    width: 100%
+    //    height: 2px
+    //    background: $color_2
+    //    transition: all 0.3s
+    //    backface-visibility: hidden
+    //    display: block
+    //    // transform: rotate(-45deg)
+    //    position: absolute
+    //    top: 50%
+    //    left: 50%
+    //    transform: translate(-50%,-50%) rotate(-45deg)
+
+
+
+
+.popupBlock
+    //display: none
+    opacity: 0
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 20
+    transition: opacity .35s
+    background-color: rgba(#2A263E,.92)
+    padding: 40px 10px 15px
+    overflow: auto
+    text-align: center
+    &:before
+        content: ''
+        display: inline-block
+        vertical-align: middle
+        height: 100%
+        user-select: none
+        pointer-events: none
+    &._show
+        opacity: 1
+    .closeIcon
+        top: 20px
+        right: 30px
+        cursor: pointer
+        position: fixed
+        z-index: 10
+        border: 1px solid #2CFFE6
+        background-color: #2A263E
+        border-radius: 5px
+        &:active
+            top: 23px
+
+.popupItem
+    vertical-align: middle
+    margin-left: -5px
+    background-color: #FFF
+    display: inline-block
+    position: relative
+    border-radius: 5px
+    padding: 25px 5rem 35px
+    width: 100%
+    transform: translate3d(0,-200px,0)
+    opacity: 0
+    transition: transform .5s, opacity .3s
+    &._show
+        transform: translate3d(0,0,0)
+        opacity: 1
+    &._t1
+        max-width: 900px
+        padding: 0
+        background: none
+
+.button_1
+    // background-color: $$color_2
+    //letter-spacing: 1px
+    border: 2px solid $color_2
+    color: $color_1
+    font-size: 1.8rem
+    text-transform: uppercase
+    font-weight: 700
+    letter-spacing: 1px
+    padding: 15px 3rem
+    border-radius: 40px
+    position: relative
+    display: inline-block
+    cursor: pointer
+    text-align: center
+    user-select: none
+    transition: border-color .25s, background .25s, color .25s
+    background: none //$color_3
+    //width: 100%
+    font-family: $jur
+    //box-shadow: 0 0 10px 0 rgba(#000, 1)
+    //max-width: 200px
+    &:hover
+        //background-color: $color_2
+        color: $color_2
+        &._arrow
+            svg
+                fill: $color_2
+    &:active
+        top: 3px
+    &._arrow
+        display: flex
+        align-items: center
+        padding-left: 2rem
+        svg
+            width: 20px
+            height: 20px
+            margin-right: 10px
+            transform: rotate(90deg)
+            fill: $color_1
+            transition: fill .25s
+    &._icon
+        padding: 10px
+        &:hover
+            svg
+                fill: $color_2
+        svg
+            transition: fill .15s
+            border-radius: 50%
+            width: 25px
+            height: 25px
+            fill: $color_1
+
+.navButton
+    width: 5rem
+    height: 5rem
+    position: relative
+    //border: 1px solid red
+    cursor: pointer
+    &:hover
+        svg
+            fill: $color_2
+    svg
+        position: absolute
+        width: 100%
+        height: 100%
+        fill: $color_1
+        top: 50%
+        left: 50%
+        transform: translate(-50%,-50%)
+        transition: fill .15s
+    &._prev
+        transform: rotate(90deg)
+    &._next
+        transform: rotate(-90deg)
+
+
+
+.galleryWrap
+    //border: 2px solid red
+    position: relative
+    .navButton
+        position: absolute
+        //border: 3px solid green
+        top: 50px
+        &._prev
+            left: 0
+        &._next
+            right: 0
+
+
+
+.dots_1
+    position: fixed
+    z-index: 5
+    bottom: 0
+    display: flex
+    justify-content: center
+    width: 100%
+    left: -10px !important
+    //left: 50% !important
+    //transform: translate(-50%, 0)
+    .swiper-pagination-bullet
+        width: 15px
+        height: 15px
+        margin: 0 10px 0 0 !important
+        border-radius: 50%
+        background-color: $color_1
+        border: 2px solid $color_3
+        opacity: 1
+        &:last-child
+            margin-right: 0 !important
+    .swiper-pagination-bullet-active
+        background-color: $color_2
+
+
+.alertText
+    font-size: 20px
+    color: $color_2
+
+.input_1
+    padding: 10px
+    background: $color_3 !important
+    border: 1px solid rgba($color_1, .5)
+    color: $color_1
+    transition: border .15s, box-shadow .15s
+    border-radius: 3px
+    font-family: $jur
+    font-size: 16px
+    appearance: none
+    width: 100%
+    box-shadow: 0 0px 20px 0px rgba(#000, .2)
+    &:focus
+        border-color: $color_2 //$color_1
+        box-shadow: 0 0px 20px 0px rgba($color_2, .2)
+    &:-webkit-autofill, &:-webkit-autofill:focus
+        transition: background-color 600000s 0s, color 600000s 0s
+    &._error
+        border-color: #FF0054 !important
+
+textarea.input_1
+    resize: none
+    height: 150px
+
+
+    
+.inputWrap_1
+    display: flex
+    align-items: center
+    transition: opacity .15s
+    p
+        margin-right: 20px
+        font-size: 1.8rem
+    &._hidden
+        opacity: 0
+        pointer-events: none
+
+
+.form_1
+    //text-align: center
+    //.title_2
+        //margin-bottom: 10px
+    .input_1
+        //margin-bottom: 10px
+        border: 1px solid rgba($color_1, 1)
+        margin-top: 10px
+        &:focus
+            border-color: $color_2
+    .bottom
+        display: flex
+        align-items: center
+        justify-content: space-between
+        margin-top: 15px
+    .error
+        margin-top: 5px
+        color: #FF0054 //rgba(red, .8)
+        font-size: 14px
+        font-weight: 600
+    .succes
+        color: green
+        font-size: 16px
+        margin-top: 5px
+
+.title_2
+    font-size: 2rem
+    color: $color_2
+    font-weight: 700
+
+
+.projectsControlPanel
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+
+
+.categoryList
+    display: flex
+    font-size: 1.8rem
+    //border: 1px solid red
+    a
+        margin-right: 20px
+        cursor: pointer
+    ._active
+        color: $color_2
+        pointer-events: none
+
+.categoryListName
+    display: none
+    font-size: 18px
+    font-weight: 700
+    align-items: center
+    span
+        line-height: 1
+    svg
+        width: 20px
+        height: 20px
+        margin-left: 10px
+        fill: $color_1
+        transition: transform .25s
+        transform: rotate(180deg)
+        &._open
+            transform: rotate(0deg)
+
+.burgerBg
+    background-color: rgba(#000,.7)
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    z-index: 20
+    visibility: hidden
+    opacity: 0
+    display: block
+    transition: opacity .5s, visibility .5s
+    &._show
+        opacity: 1
+        visibility: visible
+
+
+
+//Contacts =======================
+
+.contactsMenu
+    //border: 1px solid $color_2
+    max-width: 300px
+    width: 100%
+    overflow: auto
+    position: fixed
+    top: 0
+    right: 0
+    z-index: 21
+    background-color: $color_3
+    height: 100%
+    min-height: 100vh
+    transform: translate3d(100%,0,0)
+    transition: transform .5s
+    padding: 5rem 20px
+    box-shadow: 0 0 10px 0 rgba(#000, 1)
+    //background-image: url("../assets/img/temple.svg")
+    //opacity: .1
+    &._show
+        transform: translate3d(0,0,0)
+    .closeIcon
+        width: 30px
+        height: 30px
+        border: 1px solid $color_1
+        border-radius: 3px
+
+.contactsBlock
+    p
+        margin-bottom: 10px
+        font-size: 20px
+        span
+            color: $color_2
+            display: block
+
+.animationBlock
+    &._main
+        //border: 1px solid blue
+        min-height: calc(100% - 70px)
+        display: flex
+        align-items: center
+        //border-radius: 50%
+
+.mainItem
+    //border: 1px solid red
+    max-width: 625px
+    margin: -15% auto 0
+    position: relative
+    padding: 12rem 0 10rem
+    .text
+        font-size: 20px
+        margin-top: 20px
+        transform: translate3d(0, 0, 0)
+        //font-family: RussoOne
+        //font-weight: 700
+        opacity: 1
+        animation: animText 2s 2 alternate ease-in-out -2s
+        //animation-play-state: paused
+        //animation-iteration-count: 1
+        //animation-delay: 1s
+        margin-top: -25px
+        margin-left: 200px
+        a
+            color: $color_2
+            font-weight: 700
+            transition: color .15s
+            &:hover
+                color: darken($color_2, 10%)
+
+
+@keyframes animText
+    100%
+        transform: translate3d(0, 50px, 0)
+        opacity: 0
+        //transform: translateY(0px) //rotateX(-43deg);
+        //animation-play-state: paused
+
+
+
+//logo animate
+
+.logo_1
+    max-width: 150px
+    margin-right: 5rem
+    height: 53px
+    transition: opacity .3s
+    &._hide
+        opacity: 0
+    .gear
+        fill: #A07CD3
+        stroke: #241977
+        stroke-linejoin: round
+        stroke-opacity: 1
+        opacity: 0
+        transition: opacity .15s
+        //transform: scale(1.1) //rotate(30deg) //translate(-20%, 0)
+        //transform-origin: center 0
+        &._show
+            opacity: 1
+    .letter
+        fill: #2CFFE6
+        fill-opacity: 1
+        stroke: #005646
+        stroke-opacity: 1
+        opacity: 0
+        transition: opacity .15s
+        &._show
+            opacity: 1
+    &._t2
+        max-width: 400px
+        height: auto
+        //border: 1px solid red
+
+
+.logoCode_1
+    display: flex
+    align-items: center
+    transition: opacity .5s, visibility .5s
+    //border: 1px solid green
+    //width: 100%
+    font-size: 10px
+    //perspective: 9999px
+    //transform-style: preserve-3d
+    //animation: qqq 2s infinite alternate ease-in-out -2.5s
+    //animation-fill-mode: forwards
+    //animation-play-state: paused
+    &._hide
+        opacity: 0
+        visibility: hidden
+    &._animateActive
+        .gear
+            transform: translate3d(-15em, 0, 0) rotate(-180deg)
+            transform-origin: center center
+            opacity: 0
+            transition-delay: .5s
+        .textLogo
+            span
+                opacity: 0
+                display: inline-block
+                transition: transform 1s
+                transform: translate3d(0, 0, 0) scale(0)
+                transform-origin: center center
+                &._show
+                    //transform: rotate(20deg)
+                    opacity: 1
+                    transform: translate3d(0, 0, -10em) scale(1)
+    .gear
+        width: 17em
+        //width: 28.5%
+        position: relative
+        transition: transform 1.5s, opacity 1s
+        &._show
+            transform: translate3d(0,0,0) rotate(0)
+            opacity: 1
+    .gearImg
+        position: relative
+        left: -.3em
+        top: -.3em
+        width: 100%
+        fill: $color_2
+    .shadowGear
+        position: absolute
+        width: 100%
+        //fill: #8D59D7
+        fill: #000
+        left: 3%
+        top: 2%
+        z-index: -1
+        opacity: .5
+        filter: blur(5px)
+        //display: none
+    .textLogo
+        font-family: Whittle
+        font-size: 6em
+        letter-spacing: .08em
+        margin-left: -1.8em
+        position: relative
+        margin-top: 0.1em
+        position: relative
+        //perspective: 9999px
+        //transform-style: preserve-3d
+        //top: -.08em
+        //text-shadow: 3px 3px 0px rgba(#9D62EF, 1)
+        text-shadow: .1em .1em .2em rgba(#000, .8)
+        //text-shadow: 5px 5px 10px rgba(#000, 1)
+        //margin-top: 25px
+        //span
+            //transform-style: preserve-3d
+            //animation: qqq 5s infinite alternate ease-in-out -7.5s
+            //animation-fill-mode: forwards
+            //transform: rotateY(40deg) rotateX(33deg) translateZ(0)
+
+
+//@keyframes qqq
+//    100%
+//        transform: rotateY(-70deg) rotateX(-43deg)
+
+
+
+
+// burger ==============================================================
+
+.burgerButton
+    cursor: pointer
+    width: 30px
+    position: relative
+    display: none
+    height: 20px
+    //border: 1px solid $color_2
+    //padding: 7.5px 5px
+    //top: 50%
+    //transform: translate(0,-50%)
+    span
+        width: 100%
+        height: 4px
+        background: $color_1
+        transition: all 0.3s
+        backface-visibility: hidden
+        display: block
+        position: relative
+        margin-top: 4px
+        margin-bottom: 4px
+        border-radius: 5px
+    &:before
+        content: ''
+        width: 100%
+        height: 4px
+        background: $color_1
+        transition: all 0.3s
+        backface-visibility: hidden
+        display: block
+        top: 0
+        position: relative
+        border-radius: 5px
+    &:after
+        content: ''
+        width: 100%
+        height: 4px
+        background: $color_1
+        transition: all 0.3s
+        backface-visibility: hidden
+        display: block
+        position: relative
+        bottom: 0
+        border-radius: 5px
+    &._active
+        &:before
+            transform: rotate(45deg)
+            transform-origin: 5px 3px
+        &:after
+            transform: rotate(-45deg)
+            transform-origin: 4px 1px
+        span
+            opacity: 0
+
+.burgerMenu
+    position: fixed
+    z-index: 18
+    background-color: #2A263E
+    width: 100%
+    top: 0
+    // display: none
+    right: 0
+    overflow: auto
+    height: 100%
+    min-height: 100vh
+    transform: translate3d(0,100%,0)
+    //max-width: 400px
+    transition: transform .7s, opacity .5s, box-shadow 1s
+    padding-top: 100px
+    //transform: scale(0)
+    transform-origin: center
+    //opacity: 0
+    box-shadow: inset 0 0px 200px 40px rgba(#0A000E, 1)
+    &._show
+        //transform: //scale(1)
+        //opacity: 1
+        transform: translate3d(0,0,0)
+
+
+.burgerBg
+    background-color: rgba(#000,.7)
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    z-index: 20
+    visibility: hidden
+    opacity: 0
+    display: block
+    transition: opacity .5s, visibility .5s
+    &._active
+        opacity: 1
+        visibility: visible
+
+
+.burgerUl
+    text-align: center
+    font-size: 25px
+    li
+        margin-bottom: 20px
+        //display: inline-block
+        //border: 1px solid red
+        //>span
+            //border: 1px solid blue
+    ._active
+        color: $color_2
+        pointer-events: none
+//.closeIcon
+//    position: relative
+//    width: 36px
+//    height: 36px
+//    cursor: pointer
+//    display: block
+//    &:before
+//        content: ''
+//        width: 100%
+//        height: 4px
+//        background: #000
+//        transition: all 0.3s
+//        backface-visibility: hidden
+//        display: block
+//        position: absolute
+//        top: 50%
+//        left: 50%
+//        transform: translate(-50%,-50%) rotate(45deg)
+//        border-radius: 5px
+//    &:after
+//        content: ''
+//        width: 100%
+//        height: 4px
+//        background: #000
+//        transition: all 0.3s
+//        backface-visibility: hidden
+//        display: block
+//        // transform: rotate(-45deg)
+//        position: absolute
+//        top: 50%
+//        left: 50%
+//        transform: translate(-50%,-50%) rotate(-45deg)
+//        border-radius: 5px
+//
+
+
+
+@import "media"

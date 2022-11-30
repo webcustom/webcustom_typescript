@@ -1,0 +1,45 @@
+@import "../../../../styles/vars"
+
+.detailProject
+    //border: 1px solid red
+    .img
+        width: 100%
+        padding-bottom: 50%
+        position: relative
+        //background-size: cover
+        background-size: 100% auto
+        background-position: top center
+        background-repeat: no-repeat
+        //border: 1px solid red
+        margin-top: 3rem
+        border-radius: 5px
+        box-shadow: 0 0 10px 0 rgba(#000, .4)
+        background-color: $color_3
+    .name
+        font-weight: 700
+        font-size: 3rem
+        color: $color_2
+        text-shadow: 3px 3px rgba(#000, 1)
+    .text
+        margin-top: 3rem
+    .linkBlock
+        margin-top: 3rem
+        font-size: 18px
+        font-weight: 600
+        p
+            display: inline-block
+            margin-right: 10px
+        a
+            color: $color_2
+
+
+
+@media only screen and (max-width : 768px)
+    .detailProject
+        .linkBlock
+            font-size: 16px
+        .text
+            font-size: 16px
+
+
+

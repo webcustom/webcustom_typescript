@@ -1,31 +1,38 @@
 import Project from "./Project/Project";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import styles from './Projects.module.sass';
 import Paginator from "../common/Paginator/Paginator";
-import ProjectDetail from "./Project/ProjectDetail/ProjectDetail";
+import Delayed from "../../utils/Delayed";
+
+//Если ваш компонент всегда рендерит одно и то же при неменяющихся пропсах, вы можете обернуть его в вызов React.memo для повышения производительности
+// в некоторых случаях, мемоизируя тем самым результат. Это значит, что React будет использовать результат последнего рендера, избегая повторного рендеринга.
+//React.memo затрагивает только изменения пропсов. Если функциональный компонент обёрнут в React.memo и использует useState, useReducer или useContext, он будет
+// повторно рендериться при изменении состояния или контекста.
 
 
 const Projects = React.memo(props => {
-   console.log(props);
+// const Projects = (props) => {
 
-   // let [notProjectDetail,setNotProjectDetail] = useState(true);
-   // debugger;
+   // console.log(props);
+   let time = 200
+
 
    let projectElements = props.projects.map(
-      project => <Project project={project} key={project.id} text={project.acf.detail_text} name={project.title.rendered} src={project.acf.project_img.link}/>
+      project => {
+         time += 100
+         return <Project project={project} key={project.id} name={project.title.rendered} src={project.acf.project_img} time={time}/>
+      }
    );
-
-   console.log(props);
+   // debugger;
 
    return <>
+      {/*<Delayed>*/}
+         <div className={styles.projectsWrap}>
+            {projectElements}
+         </div>
+         <br/>
 
-      {/*<Paginator currentPage={props.props.currentPage} onPageChanged={props.onPageChanged} totalItemsCount={props.props.totalUserCount} pageSize={props.props.pageSize} />*/}
-      <div className={styles.projectsWrap}>
-         {projectElements}
-         {/*{ props.notProjectDetail*/}
-         {/*   ? projectElements : <ProjectDetail getProjectDetailThunkCreator={props.getProjectDetailThunkCreator}/>*/}
-         {/*}*/}
-      </div>
+      {/*</Delayed>*/}
    </>
 })
 

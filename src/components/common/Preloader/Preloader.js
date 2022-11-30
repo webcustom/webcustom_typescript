@@ -1,12 +1,21 @@
 import React from "react";
-import preloader from '../../../assets/img/preloder.gif';
-
+import styles from './Preloader.module.sass';
 
 let Preloader = (props) => {
-   return <div>
-      <img src={preloader}/>
+   return <div className={styles.preloader_2}>
+      <span>l</span>
+      <span>o</span>
+      <span>a</span>
+      <span>d</span>
+      <span>i</span>
+      <span>n</span>
+      <span>g</span>
+      <span>.</span>
+      <span>.</span>
+      <span>.</span>
    </div>
-
 }
 
 export default Preloader
+
+

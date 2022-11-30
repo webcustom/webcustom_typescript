@@ -1,13 +1,40 @@
+@import "../../../styles/fonts"
+@import "../../../styles/vars"
 
-.pagination span
-    padding: 0 5px
+.pagination p
+    //padding: 0 5px
     cursor: pointer
+    font-size: 20px
+    font-weight: 700
+    border: 1px solid $color_1
+    border-radius: 3px
+    padding: 3.5px 0
+    margin-right: 10px
+    transition: border .15s
+    position: relative
+    width: 33px
+    text-align: center
+    &:last-child
+        margin-right: 0
+    span
+        transition: color .15s
+        //width: 12px
+        //display: block
+        //text-align: center
+    &:hover
+        border-color: $color_2
+    &:active
+        top: 3px
+
 
 .selectedPage
-    color: red
+    color: $color_2
+    border-color: $color_2 !important
 
 .pagination
+    color: $color_1
     width: 100%
     display: flex
     flex-wrap: wrap
-    margin-bottom: 10px
+    justify-content: center
+    //margin-bottom: 10px

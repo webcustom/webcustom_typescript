@@ -1,0 +1,135 @@
+@import "src/styles/vars"
+
+
+@media only screen and (max-width : 1200px)
+    .contain
+        max-width: 992px
+
+
+@media only screen and (max-width : 992px)
+    //
+    html
+        font-size: 9px
+
+    .contain
+        max-width: 768px
+
+
+    .menu_1
+        font-size: 16px
+
+    .mainItem
+        max-width: 470px
+        .logoCode_1
+            font-size: 7px
+        .text
+            font-size: 16px
+            margin-left: 135px
+
+    //.categoryList
+    //    font-size: 16px
+    //
+    //.inputWrap_1
+    //    p
+    //        font-size: 16px
+
+@media only screen and (max-width : 768px)
+    //
+    html
+        font-size: 8px
+
+    .contain
+        max-width: 650px
+
+    .burgerButton
+        display: block
+        
+    #header
+        padding: 5px 0
+        .menu_1
+            display: none
+        .logoCode_1
+            font-size: 2.2px
+
+
+    .projectsControlPanel
+        flex-wrap: wrap
+        .inputWrap_1
+            width: 100%
+            margin-top: 20px
+
+    .categoryList
+        border-top: 1px solid rgba($color_2, .3)
+        border-bottom: 1px solid rgba($color_2, .3)
+        width: 100%
+        flex-wrap: wrap
+        font-size: 16px
+        padding: 10px 15px
+        margin-top: 10px
+        p
+            width: 100%
+            margin-top: 10px
+            &:first-child
+                margin-top: 0
+
+    .categoryListName
+        display: flex
+
+    .categoryListWrap
+        width: 100%
+        //padding: 10px 0
+    .categoryWrap
+        width: 100%
+
+@media only screen and (max-width : 650px)
+    //
+    .contain
+        max-width: 550px
+
+
+    .mainItem
+        max-width: 330px
+        .logoCode_1
+            font-size: 5px
+        .text
+            font-size: 14px
+            margin-left: 100px
+            margin-top: -15px
+
+@media only screen and (max-width : 550px)
+    //
+    .contain
+        max-width: 480px
+
+    .categoryList
+        flex-wrap: wrap
+        //display: none
+        //p
+        //    width: 100%
+        //    margin-bottom: 10px
+        //    &:last-child
+        //        margin-bottom: 0
+
+
+
+@media only screen and (max-width : 480px)
+
+    .mainItem
+        max-width: 310px
+        text-align: center
+        .logoCode_1
+            font-size: 4.5px
+            justify-content: center
+        .text
+            //margin-left: 80px
+            //margin-top: -10px
+            margin-left: 0
+            margin-top: 10px
+
+
+
+@media only screen and (min-width : 768px)
+    .categoryListWrap
+        display: block !important
+    //.categoryList
+    //    display: flex !important
