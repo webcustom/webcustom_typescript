@@ -31,7 +31,6 @@ import {inputSearchAutofocusAction} from "./redux/projects-reducer";
 
 const App = () => {
    const location = useLocation();
-   // debugger
 
    return(
       <AnimatePresence initial={false} exitBeforeEnter onExitComplete={() => {
