@@ -30,7 +30,6 @@ import {inputSearchAutofocusAction} from "./redux/projects-reducer";
 
 
 const App = () => {
-   // console.log(match)
    const location = useLocation();
    // debugger
 

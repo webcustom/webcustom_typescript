@@ -1,98 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fbd5f237-2944-4ae3-bb9b-c491b6d2ff03" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/favicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/share.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_mixins/_font-face.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/img/circuit-board.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Contacts/ContactsFormContainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Contacts/ContactsMenu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Contacts/ContactsMenuContainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Header/Header.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Header/HeaderContainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/PageMain/PageMain.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Projects/Project/ProjectDetail/ProjectDetail.module.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Projects/Project/ProjectDetail/ProjectDetailContainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/Footer/Footer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/FormsControls/FormsControls.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/FormsControls/FormsControls.module.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/Gallery_1/Gallery_1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/Gallery_1/Gallery_1.module.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/Lazyload/ImageListElem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/Lazyload/ImageRenderer.module.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/Logo_1/Logo_1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/NotFoundPage/NotFoundPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/NotFoundPage/NotFoundPage.module.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/Popup/Popup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/Popup/Popup.module.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/Preloader/Preloader.module.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/SearchComponent/SearchComponent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/SvgSpriteImg/SvgSpriteImg.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/SwiperGallery_1/SwiperGallery_1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fonts/Jura-Bold/Jura-Bold.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fonts/Jura-Bold/Jura-Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fonts/Jura-Bold/Jura-Bold.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fonts/Jura-Light/Jura-Light.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fonts/Jura-Light/Jura-Light.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fonts/Jura-Light/Jura-Light.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fonts/Jura-Medium/Jura-Medium.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fonts/Jura-Medium/Jura-Medium.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fonts/Jura-Medium/Jura-Medium.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fonts/Jura-Regular/Jura-Regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fonts/Jura-Regular/Jura-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fonts/Jura-Regular/Jura-Regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fonts/Jura-SemiBold/Jura-SemiBold.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fonts/Jura-SemiBold/Jura-SemiBold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fonts/Jura-SemiBold/Jura-SemiBold.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fonts/Whittle/Whittle.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fonts/Whittle/Whittle.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fonts/Whittle/Whittle.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/contacts-reducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/_fonts.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/_media.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/_vars.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/main.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/AnimatedPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/ChangeAnimTopPanel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/Delayed.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/lazyloadImg.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/usePrevious" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/first_project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webcustom.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/avatar.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo192.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo512.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.sass" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/img/avatar.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/img/preloder.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Projects/Project/Project.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Projects/Project/Project.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Projects/Project/Project.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Projects/Project/Project.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Projects/Project/ProjectDetail/ProjectDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Projects/Project/ProjectDetail/ProjectDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Projects/Projects.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Projects/Projects.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Projects/Projects.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Projects/Projects.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Projects/ProjectsContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Projects/ProjectsContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Paginator/Paginator.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Paginator/Paginator.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Paginator/Paginator.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Paginator/Paginator.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Preloader/Preloader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Preloader/Preloader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hoc/withSuspense.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/withSuspense.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/projects-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/projects-reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/projects-selectors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/projects-selectors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/redux-store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/redux-store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/setupTests.js" beforeDir="false" />
-    </list>
+    <list default="true" id="fbd5f237-2944-4ae3-bb9b-c491b6d2ff03" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,7 +34,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1669812968051</updated>
-      <workItem from="1669812969145" duration="775000" />
+      <workItem from="1669812969145" duration="903000" />
     </task>
     <servers />
   </component>
