@@ -2,49 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="487b390f-81d4-45fe-87fa-1d64072de4dc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/webcustom_typescript.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useTypedSelector.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/types/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/react-app-env.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/contacts-reducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/webcustom.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webcustom_typescript.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webcustom_typescript.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Contacts/ContactsFormContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Contacts/ContactsForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Contacts/ContactsMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Contacts/ContactsMenu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Contacts/ContactsMenuContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Contacts/ContactsMenuContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/HeaderContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/HeaderContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PageMain/PageMain.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageMain/PageMain.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Projects/Project/Project.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Projects/Project/Project.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Projects/Project/ProjectDetail/ProjectDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Projects/Project/ProjectDetail/ProjectDetail.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Projects/Project/ProjectDetail/ProjectDetailContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Projects/Project/ProjectDetail/ProjectDetailContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Projects/Projects.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Projects/Projects.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Projects/ProjectsContainer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Footer/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Footer/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/FormsControls/FormsControls.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/FormsControls/FormsControls.module.sass" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Gallery_1/Gallery_1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Gallery_1/Gallery_1.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Lazyload/ImageListElem.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Lazyload/ImageRenderer.module.sass" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Logo_1/Logo_1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Logo_1/Logo_1.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/NotFoundPage/NotFoundPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/NotFoundPage/NotFoundPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Paginator/Paginator.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Paginator/Paginator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Popup/Popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Popup/Popup.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/SearchComponent/SearchComponent.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/SvgSpriteImg/SvgSpriteImg.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Contacts/ContactsForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Contacts/ContactsForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Contacts/ContactsMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Contacts/ContactsMenu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Contacts/ContactsMenuContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Contacts/ContactsMenuContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/HeaderContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/HeaderContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PageMain/PageMain.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageMain/PageMain.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Projects/Project/Project.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Projects/Project/Project.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Projects/Project/ProjectDetail/ProjectDetail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Projects/Project/ProjectDetail/ProjectDetail.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Projects/Project/ProjectDetail/ProjectDetailContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Projects/Project/ProjectDetail/ProjectDetailContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Projects/Projects.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Projects/Projects.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Projects/ProjectsContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Projects/ProjectsContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/Footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Footer/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/Gallery_1/Gallery_1.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Gallery_1/Gallery_1.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/Logo_1/Logo_1.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Logo_1/Logo_1.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/NotFoundPage/NotFoundPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/NotFoundPage/NotFoundPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/Paginator/Paginator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Paginator/Paginator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/Popup/Popup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Popup/Popup.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/common/SwiperGallery_1/SwiperGallery_1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/SwiperGallery_1/SwiperGallery_1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hoc/withSuspense.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/withSuspense.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/contacts-reducer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/projects-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/projects-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/projects-selectors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/projects-selectors.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/redux-store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/redux-store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/AnimatedPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/AnimatedPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hoc/withSuspense.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/withSuspense.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useTypedSelector.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useTypedSelector.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/projects-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/projects-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/projects-selectors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/projects-selectors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/redux-store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/redux-store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/AnimatedPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/AnimatedPage.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +87,7 @@
       <workItem from="1674903022170" duration="486000" />
       <workItem from="1674988080869" duration="14391000" />
       <workItem from="1675074335691" duration="33152000" />
-      <workItem from="1675163623556" duration="3350000" />
+      <workItem from="1675163623556" duration="4284000" />
     </task>
     <servers />
   </component>
