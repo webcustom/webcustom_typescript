@@ -1,4 +1,10 @@
 import {projectsAPI} from "../api/api";
+import {ThunkAction} from "redux-thunk";
+import {RootState} from "./redux-store";
+import {Dispatch} from "redux";
+// import ProjectDetail from "../components/Projects/Project/ProjectDetail/ProjectDetail";
+import {ProjectDetailType, ProjectType} from "../types/types";
+
 
 const SET_PROJECTS = 'SET_PROJECTS';
 const SELECT_PAGE = 'SELECT_PAGE';
@@ -6,187 +12,205 @@ const TOTAL_COUNT = 'TOTAL_COUNT';
 const SET_PROJECT_DETAIL = 'SET_PROJECT_DETAIL';
 const CLEAR_PROJECT_DETAIL = 'CLEAR_PROJECT_DETAIL';
 const SELECT_FETCH = 'SELECT_FETCH';
-const SET_PROJECTS_LAZY = 'SET_PROJECTS_LAZY';
-const CLEAR_PROJECTS_LAZY = 'CLEAR_PROJECTS_LAZY';
-const SELECT_LAZY_PAGE = 'SELECT_LAZY_PAGE';
 const ALL_SEARCH_PROJECTS = 'ALL_SEARCH_PROJECTS';
 const RESULT_SEARCH_PROJECTS = 'RESULT_SEARCH_PROJECTS';
 const SEARCH_STRING = 'SEARCH_STRING';
 const CATEGORY_PROJECTS = 'CATEGORY_PROJECTS';
 const INPUT_SEARCH_AUTOFOCUS = 'INPUT_SEARCH_AUTOFOCUS';
-// const NOT_FOUND_PAGE = 'NOT_FOUND_PAGE';
 const COLLAPSED_CATEGORY_LIST_MOBILE = 'OPENED_CATEGORY_LIST_MOBILE';
 
 
-let initialState = {
-   projects: [
-      // {id: 1, src: '/img/avatar.jpg', name: 'Project 1', text: 'I am looking for a job right now...',},
-      // {id: 2, src: '/img/avatar.jpg', name: 'Project 2', text: 'I am looking for a job right now...',},
-      // {id: 3, src: '/img/avatar.jpg', name: 'Project 3', text: 'I am looking for a job right now...',},
-      // {id: 4, src: '/img/avatar.jpg', name: 'Project 4', text: 'I am looking for a job right now...',},
-      // {id: 5, src: '/img/avatar.jpg', name: 'Project 5', text: 'I am looking for a job right now...',},
-      // {id: 6, src: '/img/avatar.jpg', name: 'Project 6', text: 'I am looking for a job right now...',},
-      // {id: 7, src: '/img/avatar.jpg', name: 'Project 7', text: 'I am looking for a job right now...',},
-   ],
-   projectsLazy: [],
+
+
+interface InitialProjectsStateTypes{
+   projects: Array<ProjectType> //| null;
+   // projectsLazy: any[];
+   pageSize: number;
+   totalProjectCount: number;
+   currentPage: number;
+   lazyCurrentPage: number;
+   isFetching: boolean;
+   projectDetail: ProjectDetailType;
+   allSearchProjects: Array<ProjectType>;
+   resultSearchProjects: Array<ProjectType> | null;
+   searchString: string;
+   inputSearchAutofocus: boolean;
+   collapsedCategoryListMobile: boolean;
+   categoryProjects: Array<ProjectType> | undefined;
+}
+
+
+
+interface SelectPageActionType{
+   type: typeof SELECT_PAGE;
+   payload: number
+}
+interface SetProjectsActionType{
+   type: typeof SET_PROJECTS;
+   payload: Array<ProjectType>
+}
+
+
+interface TotalCountActionType{
+   type: typeof TOTAL_COUNT;
+   payload: number
+}
+
+
+interface SelectFetchActionType{
+   type: typeof SELECT_FETCH;
+   payload: boolean
+}
+interface AllSearchProjectsActionType{
+   type: typeof ALL_SEARCH_PROJECTS;
+   payload: Array<ProjectType>
+}
+interface ResultSearchProjectsActionType{
+   type: typeof RESULT_SEARCH_PROJECTS;
+   payload: Array<ProjectType> | null
+}
+interface SearchStringActionType{
+   type: typeof SEARCH_STRING;
+   payload: string
+}
+interface CategoryProjectsActionType{
+   type: typeof CATEGORY_PROJECTS;
+   payload: Array<ProjectType> | undefined
+}
+interface InputSearchAutofocusActionType{
+   type: typeof INPUT_SEARCH_AUTOFOCUS;
+   payload: boolean
+}
+interface CollapsedCateoryListMobileActionType{
+   type: typeof COLLAPSED_CATEGORY_LIST_MOBILE;
+   payload: boolean
+}
+
+
+
+
+interface ClearProjectDetailActionType{
+   type: typeof CLEAR_PROJECT_DETAIL,
+   payload: ProjectDetailType
+}
+
+interface SetProjectDetailActionType{
+   type: typeof SET_PROJECT_DETAIL,
+   payload: ProjectDetailType
+}
+
+
+type ProjectsActions = SelectPageActionType | SetProjectsActionType | TotalCountActionType | SetProjectDetailActionType | SelectFetchActionType
+    | ClearProjectDetailActionType | AllSearchProjectsActionType | ResultSearchProjectsActionType | SearchStringActionType | CategoryProjectsActionType
+    | InputSearchAutofocusActionType | CollapsedCateoryListMobileActionType
+
+
+
+
+let initialState: InitialProjectsStateTypes = {
+   projects: [] as Array<ProjectType>, //as Array<ProjectsTypee>,
+   // projects: [{title: 'qwe', anons_img: 'asdasd', id: 1111, link: 'asdasd', slug: 'asdasd'}],
+   // projectsLazy: [],
    pageSize: 16, //количество элементов на странице
-   totalProjectCount: null, //количество элементов всего
+   totalProjectCount: 0, //количество элементов всего
    currentPage: 1,
    lazyCurrentPage: 1,
    isFetching: true, //прелоадер
    projectDetail: {
-      acf: {
-         detail_text: '',
-         project_img: {
-            url: ''
-         }
+      detail_img: '',
+      gallery_imgs: {
+         bigsize: [] as Array<string>,
+         fullsize: [] as Array<string>,
+         miniature: [] as Array<string>
       },
-      title: '',
+      link: '',
+      title: ''
    },
-   allSearchProjects: '', //сюда загружаются все элементы среди которых будет осуществлен поиск
-   resultSearchProjects: '', //сюда загружаем результат поиска
+   allSearchProjects: [] as Array<ProjectType>, //сюда загружаются все элементы среди которых будет осуществлен поиск
+   resultSearchProjects: [] as Array<ProjectType>, //сюда загружаем результат поиска
    searchString: '',
    inputSearchAutofocus: false,
    collapsedCategoryListMobile: true,
-   // notFoundPage: false
-   // animTopPanel: true
+   categoryProjects: [] as Array<ProjectType>,
 }
 
-const projectsReducer = (state = initialState, action) => {
+
+
+
+const projectsReducer = (state = initialState, action: ProjectsActions): InitialProjectsStateTypes => {
    // console.log(action);
    // debugger;
 
    switch(action.type){
-      //меняем текущую страницу на ту которая пришла в action
       case SELECT_PAGE: {
-         // debugger;
          return {
-            ...state,currentPage: action.currentPage //перезаписываем currentPage
-         }
-      }
-      case SELECT_LAZY_PAGE: {
-         // debugger;
-         return {
-            ...state,lazyCurrentPage: action.lazyCurrentPage //перезаписываем currentPage
+            ...state,currentPage: action.payload //перезаписываем currentPage
          }
       }
       case SET_PROJECTS: {
-         // debugger;
          return {
-            //...state, users: [...state.users, ...action.users] //тут создаем копию объекта state в нем создаем копию объекта state.users и добавляем к нему наш action.users
-            ...state, projects: action.projects //перезаписываем массив projects
-         }
-      }
-      case SET_PROJECTS_LAZY: {
-         // debugger
-         return {
-            ...state, //projectsLazy: state.projectsLazy.push(action.projects) //перезаписываем массив projects
-            // projectsLazy: [...state.projectsLazy, action.projectsLazy]
-            projectsLazy: [...state.projectsLazy].concat(action.projectsLazy)
+            ...state, projects: action.payload //перезаписываем массив projects
          }
       }
       case TOTAL_COUNT: {
-         // debugger
          return {
-            ...state,totalProjectCount: action.totalCount
+            ...state,totalProjectCount: action.payload
          }
       }
       case SET_PROJECT_DETAIL: {
-         // debugger;
          return {
-            //...state, users: [...state.users, ...action.users] //тут создаем копию объекта state в нем создаем копию объекта state.users и добавляем к нему наш action.users
-            ...state, projectDetail: action.projectDetail //перезаписываем массив projectDetail
+            ...state, projectDetail: action.payload
          }
       }
       case SELECT_FETCH: {
-         // debugger;
          return {
-            ...state,isFetching: action.isFetching //меняем значение на то что пришло в action
+            ...state,isFetching: action.payload
          }
       }
       case CLEAR_PROJECT_DETAIL: {
-         // debugger;
          return {
-            //...state, users: [...state.users, ...action.users] //тут создаем копию объекта state в нем создаем копию объекта state.users и добавляем к нему наш action.users
-            ...state, projectDetail: action.projectDetail //перезаписываем массив users
-         }
-      }
-      case CLEAR_PROJECTS_LAZY: {
-         // debugger;
-         return {
-            //...state, users: [...state.users, ...action.users] //тут создаем копию объекта state в нем создаем копию объекта state.users и добавляем к нему наш action.users
-            ...state, projectsLazy: action.projectsLazy //перезаписываем массив users
+            ...state, projectDetail: action.payload
          }
       }
 
       case ALL_SEARCH_PROJECTS: {
          // debugger;
          return {
-            //...state, users: [...state.users, ...action.users] //тут создаем копию объекта state в нем создаем копию объекта state.users и добавляем к нему наш action.users
-            ...state, allSearchProjects: action.allSearchProjects //перезаписываем массив users
+            ...state, allSearchProjects: action.payload
          }
       }
 
       case RESULT_SEARCH_PROJECTS: {
          // debugger;
          return {
-            //...state, users: [...state.users, ...action.users] //тут создаем копию объекта state в нем создаем копию объекта state.users и добавляем к нему наш action.users
-            ...state, resultSearchProjects: action.resultSearchProjects //перезаписываем массив users
+            ...state, resultSearchProjects: action.payload
          }
       }
 
       case SEARCH_STRING: {
          // debugger;
          return {
-            //...state, users: [...state.users, ...action.users] //тут создаем копию объекта state в нем создаем копию объекта state.users и добавляем к нему наш action.users
-            ...state, searchString: action.searchString //перезаписываем массив users
+            ...state, searchString: action.payload
          }
       }
 
       case CATEGORY_PROJECTS: {
          return {
-            ...state, categoryProjects: action.categoryProjects //перезаписываем массив users
+            ...state, categoryProjects: action.payload
          }
       }
 
       case INPUT_SEARCH_AUTOFOCUS: {
-         // console.log(action.inputSearchAutofocus)
          return {
-            ...state, inputSearchAutofocus: action.inputSearchAutofocus //перезаписываем массив users
+            ...state, inputSearchAutofocus: action.payload
          }
       }
 
       case COLLAPSED_CATEGORY_LIST_MOBILE: {
-         // debugger
-         // console.log(action.inputSearchAutofocus)
          return {
-            ...state, collapsedCategoryListMobile: action.collapsedCategoryListMobile //перезаписываем массив users
+            ...state, collapsedCategoryListMobile: action.payload
          }
       }
-
-      // case NOT_FOUND_PAGE: {
-      //    // console.log(action.inputSearchAutofocus)
-      //    return {
-      //       ...state, notFoundPage: action.notFoundPage //перезаписываем массив users
-      //    }
-      // }
-
-
-      // case ANIM_TOP_PANEL: {
-      //    // debugger
-      //    return {
-      //       ...state, animTopPanel: action.animTopPanel //перезаписываем массив users
-      //    }
-      // }
-      // case PROJECT_LOAD_CHANGE: {
-      //    // debugger;
-      //    return {
-      //       //...state, users: [...state.users, ...action.users] //тут создаем копию объекта state в нем создаем копию объекта state.users и добавляем к нему наш action.users
-      //       ...state, projectLoadChange: action.projectLoadChange //перезаписываем массив users
-      //    }
-      // }
-
-
 
       default:
          return state;
@@ -194,207 +218,173 @@ const projectsReducer = (state = initialState, action) => {
 }
 
 
-export const setProjects = (projects) => {
-   // alert('222');
-   // debugger;
+
+
+export const setProjects = (projects: Array<ProjectType>): SetProjectsActionType => {
+   // console.log(projects[0].anons_img)
+   // debugger
+   // projects[2]
    return{
       type: SET_PROJECTS,
-      projects: projects
+      payload: projects
    }
 }
-export const selectPage = (currentPage) => {
-   // debugger;
+export const selectPage = (currentPage: number): SelectPageActionType => {
    return{
       type: SELECT_PAGE,
-      currentPage: currentPage
+      payload: currentPage
    }
 }
-export const selectLazyPage = (currentPage) => {
-   // debugger;
-   return{
-      type: SELECT_LAZY_PAGE,
-      lazyCurrentPage: currentPage
-   }
-}
-export const setTotalCount = (totalCount) => {
-   // debugger;
+export const setTotalCount = (totalCount: number): TotalCountActionType => {
    return{
       type: TOTAL_COUNT,
-      totalCount: totalCount
+      payload: totalCount
    }
 }
-
-export const setProjectsLazy = (projects) => {
-   // alert('222');
-   // debugger;
-   return{
-      type: SET_PROJECTS_LAZY,
-      projectsLazy: projects
-   }
-}
-
-export const setProjectDetail = (projectDetail) => {
-   // debugger;
+export const  setProjectDetail = (projectDetail: ProjectDetailType): SetProjectDetailActionType => {
    return{
       type: SET_PROJECT_DETAIL,
-      projectDetail: projectDetail
+      payload: projectDetail
    }
 }
-export const clearProjectDetail = () => {
-   // debugger;
+export const clearProjectDetail = (): ClearProjectDetailActionType => {
    return{
       type: CLEAR_PROJECT_DETAIL,
-      // projectDetail: null
-      // received: false,
-      projectDetail: {
-         acf: {
-            detail_text: null,
-            project_img: {
-               url: null
-            }
+      payload: {
+         detail_img: '',
+         gallery_imgs: {
+            bigsize: [],
+            fullsize: [],
+            miniature: []
          },
-         title: {
-            rendered: null
-         }
-      },
+         link: '',
+         title: ''
+      }
+
    }
 }
-export const selectFetch = (isFetching) => {
-   // debugger
+export const selectFetch = (isFetching: boolean): SelectFetchActionType => {
    return{
       type: SELECT_FETCH,
-      isFetching: isFetching,
+      payload: isFetching,
    }
 }
-
-
-export const selectSearch = (allSearchProjects) => {
+export const selectSearch = (allSearchProjects: Array<ProjectType>): AllSearchProjectsActionType => {
    return{
       type: ALL_SEARCH_PROJECTS,
-      allSearchProjects: allSearchProjects,
+      payload: allSearchProjects,
    }
 }
-
-
-export const resultSearchProjectsAction = (resultSearchProjects) => {
-   // debugger
+export const resultSearchProjectsAction = (resultSearchProjects: Array<ProjectType> | null): ResultSearchProjectsActionType => {
    return{
       type: RESULT_SEARCH_PROJECTS,
-      resultSearchProjects: resultSearchProjects,
+      payload: resultSearchProjects,
    }
 }
-
-
-export const searchStringAction = (searchString) => {
-   // debugger
+export const searchStringAction = (searchString: string): SearchStringActionType => {
    return{
       type: SEARCH_STRING,
-      searchString: searchString,
+      payload: searchString,
    }
 }
-
-export const categoryProjectsAction = (categoryProjects) => {
-   // debugger
+export const categoryProjectsAction = (categoryProjects: Array<ProjectType> | undefined): CategoryProjectsActionType => {
    return{
       type: CATEGORY_PROJECTS,
-      categoryProjects: categoryProjects,
+      payload: categoryProjects,
    }
 }
-
-
-export const inputSearchAutofocusAction = (inputSearchAutofocus) => {
-   // debugger
+export const inputSearchAutofocusAction = (inputSearchAutofocus: boolean): InputSearchAutofocusActionType => {
    return{
       type: INPUT_SEARCH_AUTOFOCUS,
-      inputSearchAutofocus: inputSearchAutofocus,
+      payload: inputSearchAutofocus,
    }
 }
-
-
-export const collapsedCategoryListMobileAction = (collapsedCategoryListMobile) => {
-   // debugger
+export const collapsedCategoryListMobileAction = (collapsedCategoryListMobile: boolean): CollapsedCateoryListMobileActionType => {
    return{
       type: COLLAPSED_CATEGORY_LIST_MOBILE,
-      collapsedCategoryListMobile: collapsedCategoryListMobile,
+      payload: collapsedCategoryListMobile,
    }
 }
 
 
 
 
-export const getProjectDetailThunkCreator = (projectId) => async (dispatch) => {
+
+export type DispatchType = Dispatch<ProjectsActions>;
+type ThunkType = ThunkAction<Promise<void>, RootState, unknown, ProjectsActions>
+
+
+
+
+export const getProjectDetailThunkCreator = (projectSlug: string | undefined): ThunkType => async (dispatch: DispatchType) => {
    dispatch(selectFetch(true)); //показываем прелоадер
-   let data = await projectsAPI.getProjectDetail(projectId);
+   let data = await projectsAPI.getProjectDetail(projectSlug);
    // debugger
    if(data){
-      // dispatch(notFoundPageAction(false))
       dispatch(setProjectDetail(data));
    }
-   // else{
-   //    dispatch(notFoundPageAction(true))
-   // }
    dispatch(selectFetch(false)); //когда приходит ответ с сервера убираем прелоадер
-   // debugger
 }
-
-
 
 
 //санки thunkCreator возвращает функцию которую можно задиспатчить
-export const getProjectsThunkCreator = (currentPage, pageSize, lazy = false) => async (dispatch) => {
-      dispatch(selectFetch(true)); //показываем прелоадер
-      dispatch(selectPage(currentPage)); //меняем в state активную страницу
-      //тут мы вызываем функцию которая отвечает за получение данных с сервера
+export const getProjectsThunkCreator = (currentPage: number, pageSize: number): ThunkType => async (dispatch: DispatchType) => {
+   // console.log(getState())
+   dispatch(selectFetch(true)); //показываем прелоадер
+   dispatch(selectPage(currentPage)); //меняем в state активную страницу
+   //тут мы вызываем функцию которая отвечает за получение данных с сервера
+   let data = await projectsAPI.getProjects(currentPage, pageSize);
 
-      let data = await projectsAPI.getProjects(currentPage, pageSize);
-
-      if (lazy == false && data) {
-         dispatch(setProjects(data.data));
-      } else if (data) {
-         dispatch(setProjectsLazy(data.data));
-      }
-      if (data) {
-         dispatch(setTotalCount(data.headers['x-wp-total'])) //общее количество всех записей получаем из заголовка запроса параметра x-wp-total
-         dispatch(selectFetch(false)); //когда приходит ответ с сервера убираем прелоадер
-      }
+   if (data) {
+      // console.log(data)
+      dispatch(setProjects(data.data))
+      dispatch(setTotalCount(Number(data.headers['x-wp-total']))) //общее количество всех записей получаем из заголовка запроса параметра x-wp-total
+      dispatch(selectFetch(false)); //когда приходит ответ с сервера убираем прелоадер
+   }
 }
 
 
 
-
-export const getAllProjectsThunkCreator = () => async (dispatch) => {
-   // debugger
+export const getAllProjectsThunkCreator = ():ThunkType => async (dispatch: DispatchType) => {
    dispatch(selectFetch(true)); //показываем прелоадер
    let data = await projectsAPI.getAllProjects();
-   // debugger
    if(data){
       dispatch(selectSearch(data));
       dispatch(selectFetch(false)); //когда приходит ответ с сервера убираем прелоадер
 
    }
-
-   // dispatch(setProjectDetail(data));
 }
 
 
-export const getCategoryProjectsThunkCreator = (catNum, currentPage, pageSize) => async (dispatch) => {
+export const getCategoryProjectsThunkCreator = (catSlug: string, currentPage: number, pageSize:number): ThunkType => async (dispatch: DispatchType) => {
    dispatch(selectFetch(true)); //показываем прелоадер
-   // debugger
    dispatch(selectPage(currentPage));
-   let data = await projectsAPI.getCategoryProjects(catNum, currentPage, pageSize)
+   let data = await projectsAPI.getCategoryProjects(catSlug, currentPage, pageSize)
    // debugger
+
    if(data){
-      // dispatch(notFoundPageAction(false))
-      dispatch(setTotalCount(data.headers['x-wp-total']))
+      dispatch(setTotalCount(Number(data.headers['x-wp-total'])))
       dispatch(categoryProjectsAction(data.data));
-      // console.log(data.data)
-      // if(data.data.length == 0){
-      //    dispatch(notFoundPageAction(true))
-      // }
+
    }
    dispatch(selectFetch(false)); //когда приходит ответ с сервера убираем прелоадер
 
 }
+
+//==========================================================
+//==========================================================
+//==========================================================
+
+// export const getQqq = (): ThunkType => async (dispatch: DispatchType, getState) => {
+//    // debugger
+//    let data = await testReq.testRequest()
+//    // console.log(data)
+//
+// }
+
+//==========================================================
+//==========================================================
+//==========================================================
 
 
 export default projectsReducer;

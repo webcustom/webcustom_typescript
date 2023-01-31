@@ -1,8 +1,20 @@
 import React, {useEffect, useState} from "react";
 
+interface TypePropsLetter {
+   time: number
+   letter: string
+   key: number
+}
+interface TypePropsLogo {
+   addClass?: string
+   animate?: boolean
+}
 
-const Letter = (props) => {
-   const [showElem, setShowElem] = useState(false);
+
+const Letter: React.FC<TypePropsLetter> = (props) => {
+
+
+   const [showElem, setShowElem] = useState<boolean>(false);
 
    useEffect(() => {
       let isMounted = true //для избежания ошибки утечки памети в useEffect
@@ -22,8 +34,9 @@ const Letter = (props) => {
 }
 
 
-const Logo_1 = (props) => {
-   const [gearAnim, setGearAnim] = useState(false);
+const Logo_1: React.FC<TypePropsLogo> = (props) => {
+
+   const [gearAnim, setGearAnim] = useState<boolean>(false);
    useEffect(() => {
       setTimeout(function() {
          setGearAnim(true)

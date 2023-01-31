@@ -5,10 +5,17 @@ import Header from "./Header";
 import ContactsMenuContainer from "../Contacts/ContactsMenuContainer";
 
 
-const HeaderContainer = () => {
+export interface MenuObjType {
+   name: string
+   href: string
+}
 
-   const [showContacts, setShowContacts] = useState(false);
-   const [showHeader, setShowHeader] = useState(false);
+const HeaderContainer: React.FC = () => {
+
+   const [showContacts, setShowContacts] = useState<boolean>(false);
+   const [showHeader, setShowHeader] = useState<boolean>(false);
+
+
 
    let menuObj = [
       {
@@ -19,7 +26,7 @@ const HeaderContainer = () => {
          name: 'Портфолио',
          href: '/projects',
       },
-   ]
+   ] as Array<MenuObjType>
 
    return <>
       <Header menuObj={menuObj} yesChangeAnimTopPanel={yesChangeAnimTopPanel} showContacts={showContacts} setShowContacts={setShowContacts} showHeader={showHeader} setShowHeader={setShowHeader} />

@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Projects from "./Projects";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {useEffect} from "react";
 import {
    getProjectsThunkCreator,
@@ -20,15 +20,19 @@ import {abortRequestProjects, abortRequestProjectsCat} from "../../api/api";
 
 import {noChangeAnimTopPanel} from "../../utils/ChangeAnimTopPanel";
 
-import { SlideToggle } from '@todys/react-slide-toggle'
 import {useTypedSelector} from "../../hooks/useTypedSelector";
+
+// import { SlideToggle } from '@todys/react-slide-toggle'
+// @ts-ignore (typescript игнорирует следующую строку)
+import SlideToggle from "react-slide-toggle";
+
+
 
 
 
 
 
 const ProjectsContainer: React.FC = () => {
-
 
    let projects = useTypedSelector(state => state.projectsPage.projects);
    let pageSize = useTypedSelector(state => state.projectsPage.pageSize);
@@ -56,7 +60,9 @@ const ProjectsContainer: React.FC = () => {
    //
    // let categoryProjects = useSelector(state => state.projectsPage.categoryProjects);
 
-   // console.log(projects)
+
+
+   // console.log(searchProjects)
    // debugger
 
    const dispatch = useDispatch();
@@ -67,18 +73,16 @@ const ProjectsContainer: React.FC = () => {
    const [searchParams, setSearchParams] = useSearchParams('') //useSearchParams используется для чтения и изменения строки запроса в URL-адресе
 
    let elemQuery = searchParams.get('searchElems')
-
    const navigate = useNavigate()
 
-   // let inputSearchAutofocus = useSelector(state => state.projectsPage.inputSearchAutofocus);
-   // let collapsedCategoryListMobile = useSelector(state => state.projectsPage.collapsedCategoryListMobile); //useSelector(getAllProjectsSelector);
 
-   const [activeMenuCat, setActiveMenuCat] = useState(false);
+   // const [activeMenuCat, setActiveMenuCat] = useState(false);
 
 
 
 
    useEffect(() => {
+
       document.body.classList.remove('_noScroll');
       dispatch(selectFetch(false))
       if(catSlug == undefined) {
@@ -101,6 +105,8 @@ const ProjectsContainer: React.FC = () => {
          }
          dispatch(getCategoryProjectsThunkCreator(catSlug, currentPage, pageSize))
       }
+
+
       return () => {
          if(abortRequestProjects[currentPage]) { //если запрос api axios не успел завершиться тогда мы его отменяем
             abortRequestProjects[currentPage].abort()
@@ -124,7 +130,7 @@ const ProjectsContainer: React.FC = () => {
       }else{
          setSearchParams({searchElems: ''})
       }
-      if (allSearchProjects == '') {
+      if (allSearchProjects.length == 0) {
          dispatch(getAllProjectsThunkCreator(/*query*/));
       }
       dispatch(inputSearchAutofocusAction(true)) //ставим автофокус на input search
@@ -134,7 +140,7 @@ const ProjectsContainer: React.FC = () => {
    useEffect(() => {
       let isMounted = true
 
-      if (allSearchProjects == '' && elemQuery != null) {
+      if (allSearchProjects.length == 0 && elemQuery != null) {
          dispatch(getAllProjectsThunkCreator());
       }
       if (elemQuery != null) {
@@ -143,21 +149,25 @@ const ProjectsContainer: React.FC = () => {
             navigate('/projects/search?searchElems='+elemQuery)
             noChangeAnimTopPanel()
          }
-         setActiveMenuCat(true)
+         // setActiveMenuCat(true)
       }
       if (searchProjects != undefined) {
          dispatch(resultSearchProjectsAction(searchProjects))
       }
       if (elemQuery == ''){
-         dispatch(resultSearchProjectsAction(''))
+         dispatch(resultSearchProjectsAction(null))
          navigate('/projects')
       }
       if (elemQuery == null && isMounted){
          setTimeout(() => {
-            dispatch(resultSearchProjectsAction(''))
+            dispatch(resultSearchProjectsAction(null))
             dispatch(searchStringAction(''))
          }, 500);
       }
+
+
+
+
       return () => {
          isMounted = false
 
@@ -183,7 +193,7 @@ const ProjectsContainer: React.FC = () => {
       }
    }
 
-   const onPageChangedCat = (pageNum: number, catSlug: string) => {
+   const onPageChangedCat = (pageNum: number, catSlug: string | undefined) => {
       if(pageNum != currentPage) {
          let target;
          if (pageNum > 1) {
@@ -198,18 +208,36 @@ const ProjectsContainer: React.FC = () => {
 
 
 
+   //для отображения анимации
+   let initialBox: string | undefined
+   let exitBox: string | undefined
+   if(window.localStorage.getItem('animTopPanel') == 'yes'){
+      initialBox = 'initial'
+      exitBox = 'exit'
+   }else{
+      initialBox = ''
+      exitBox = ''
+   }
    // console.log(catSlug)
-   // console.log(currentPage)
-   // console.log(projects)
+   // console.log(initialBox)
+   // console.log(collapsedCategoryListMobile)
+
+   // debugger
 
 
-   const setActive = ({isActive}) => isActive ? '_active' : '';
+
+   interface SlideToggleRenderType {
+      toggle: () => void
+      setCollapsibleElement: () => void
+   }
+
+   const setActive = ({isActive}: any) => isActive ? '_active' : '';
    return <>
       <div className={'sectionAfter'}>
          <div className="contain">
             {/*<form autoComplete="off" onSubmit={handleSubmit}>*/}
 
-            <AnimatedPage initial={window.localStorage.getItem('animTopPanel') == 'yes' && 'initial'} exit={window.localStorage.getItem('animTopPanel') == 'yes' && 'exit'}>
+            <AnimatedPage initial={initialBox} exit={exitBox} >
 
                <p className={'title_1'}>Портфолио</p>
                <div className="projectsControlPanel">
@@ -217,15 +245,16 @@ const ProjectsContainer: React.FC = () => {
 
 
                   <SlideToggle
+                     state = {false}
                      duration={400}
                      collapsed={collapsedCategoryListMobile}
-                     onExpanded={({ hasReversed  }) => {
+                     onExpanded={() => {
                         dispatch(collapsedCategoryListMobileAction(false))
                      }}
-                     onCollapsed={({ hasReversed }) => {
+                     onCollapsed={() => {
                         dispatch(collapsedCategoryListMobileAction(true))
                      }}
-                     render={({ toggle, setCollapsibleElement, progress }) => (
+                     render={({toggle, setCollapsibleElement}: SlideToggleRenderType) => (
                         <div className={'categoryWrap'}>
                            <p className="categoryListName">
                               <span onClick={toggle}>Категории</span>
@@ -248,7 +277,7 @@ const ProjectsContainer: React.FC = () => {
 
                   <div className={'inputWrap_1'}>
                      <p>Поиск</p>
-                     <input className="input_1" type="text" name="search" autoFocus={inputSearchAutofocus && 'autoFocus'} onChange={changeInputSearch} value={elemQuery == null ? '' : elemQuery}/>
+                     <input className="input_1" type="text" name="search" autoFocus={inputSearchAutofocus && true} onChange={changeInputSearch} value={elemQuery == null ? '' : elemQuery}/>
                   </div>
                </div>
 
@@ -260,22 +289,26 @@ const ProjectsContainer: React.FC = () => {
 
             {isFetching ? <Preloader/> : <AnimatedPage>
 
-               {categoryProjects != undefined && !resultSearchProjects.length
+               {/*проекты категорий*/}
+               {categoryProjects != undefined && resultSearchProjects == null
                   ? <div>
                      <div className='_mt30'><Projects projects={categoryProjects}/></div>
-                     <Paginator currentPage={currentPage} totalItemsCount={totalProjectCount} pageSize={pageSize} onPageChanged={onPageChangedCat} catSlug={catSlug}/>
+                     <Paginator currentPage={currentPage} totalProjectCount={totalProjectCount} pageSize={pageSize} onPageChanged={onPageChangedCat} catSlug={catSlug}/>
                   </div> : ''}
 
-               {resultSearchProjects.length
+               {/*вывод проектов по поиску*/}
+               {resultSearchProjects != null
                   ? <div className='_mt30'><Projects projects={resultSearchProjects}/></div> : ''}
 
-               {resultSearchProjects.length == 0 && searchString.length == 0 && categoryProjects == undefined
+               {/*все категорий*/}
+               {resultSearchProjects == null && searchString.length == 0 && categoryProjects == undefined
                   ? <div className='_mt30'>
                      <Projects projects={projects}/>
-                     <Paginator currentPage={currentPage} totalItemsCount={totalProjectCount} pageSize={pageSize} onPageChanged={onPageChanged} />
+                     <Paginator currentPage={currentPage} totalProjectCount={totalProjectCount} pageSize={pageSize} onPageChanged={onPageChanged} catSlug={catSlug} />
                   </div> : ''}
 
-               {resultSearchProjects.length == 0 && searchString.length != 0
+               {resultSearchProjects == null && searchString.length != 0
+
                   ? <div className='_mt30'><p className='alertText'>Ничего не найдено</p></div> : ''}
             </AnimatedPage>}
 

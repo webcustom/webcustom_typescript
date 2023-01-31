@@ -1,36 +1,19 @@
 import React from 'react';
-// import Projects from "./Projects";
-// import {compose} from "redux";
-import {connect, useDispatch, useSelector} from "react-redux";
-import {useCallback, useEffect, useState} from "react";
-// import {
-//    getProjectsThunkCreator,
-//    setProjects,
-//    getProjectDetailThunkCreator,
-//    clearProjectDetailThunkCreator
-// } from "../../../redux/projects-reducer";
-// import {
-//    getProjects,
-// } from "../../redux/projects-selectors";
-// import ProjectDetail from "./Project/ProjectDetail/ProjectDetail";
-// import Preloader from "../common/Preloader/Preloader";
-import {
-   clearProjectDetail,
-   getProjectDetailThunkCreator, resultSearchProjectsAction,
-   selectFetch
-} from "../../../../redux/projects-reducer";
+import {useDispatch} from "react-redux";
+import {useEffect} from "react";
+import {getProjectDetailThunkCreator} from "../../../../redux/projects-reducer";
 import ProjectDetail from "./ProjectDetail";
 import Preloader from "../../../common/Preloader/Preloader";
-import {NavLink, useNavigate, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import AnimatedPage from "../../../../utils/AnimatedPage";
-import {abortRequestProjects, abortRequestProjectsDetail} from "../../../../api/api";
+import {abortRequestProjectsDetail} from "../../../../api/api";
 import NotFoundPage from "../../../common/NotFoundPage/NotFoundPage";
 import {useTypedSelector} from "../../../../hooks/useTypedSelector";
 
 
 
 
-const ProjectDetailContainer = () => {
+const ProjectDetailContainer: React.FC = () => {
 
    // let projectDetailText = useSelector(state => state.projectsPage.projectDetail.acf.detail_text);
    // let projects = useTypedSelector(state => state.projectsPage.projects)
@@ -42,10 +25,8 @@ const ProjectDetailContainer = () => {
    let isFetching = useTypedSelector(state => state.projectsPage.isFetching);
 
    const dispatch = useDispatch();
-   let {projectSlug} = useParams();
+   let {projectSlug} = useParams<string>();
 
-   // debugger
-   console.log(projectSlug)
 
    const loadProjectDetail = () => {
       dispatch(getProjectDetailThunkCreator(projectSlug));

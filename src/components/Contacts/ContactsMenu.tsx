@@ -2,7 +2,7 @@ import React from "react";
 
 
 
-const ContactsMenu = () => {
+const ContactsMenu: React.FC = () => {
 
    return <>
 

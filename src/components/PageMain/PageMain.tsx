@@ -1,4 +1,4 @@
-// import React, {useEffect, useState} from 'react';
+import React from 'react';
 
 import AnimatedPage from "../../utils/AnimatedPage";
 import {NavLink} from "react-router-dom";
@@ -7,7 +7,7 @@ import {useEffect} from "react";
 
 
 
-const PageMain = () => {
+const PageMain: React.FC = () => {
 
    // document.body.classList.add('_noScroll');
    return <>

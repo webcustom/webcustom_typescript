@@ -1,11 +1,10 @@
 import React from "react";
 
 
-const Footer = () => {
+const Footer: React.FC = () => {
 
 
    return <>
-      {/*{alert(111)}*/}
       <footer id={'footer'}>
          <div className="contain">
             <p className="copyright">© webcustom 2022</p>

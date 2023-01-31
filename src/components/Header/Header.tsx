@@ -3,42 +3,24 @@ import {NavLink} from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 import Logo_1 from "../common/Logo_1/Logo_1";
+import {MenuObjType} from "./HeaderContainer";
 
+interface PropsType{
+   menuObj: Array<MenuObjType>
+   setShowContacts: (showContacts: boolean) => void
+   setShowHeader: (showHeader: boolean) => void
+   showContacts: boolean
+   showHeader: boolean
+   yesChangeAnimTopPanel: () => void
+}
 
-const Header = (props) => {
+const Header: React.FC<PropsType> = (props) => {
 
    let location = useLocation();
-   // console.log(location)
-   // let menuObj = [
-   //    {
-   //       name: 'Главная',
-   //       href: '/',
-   //    },
-   //    {
-   //       name: 'Портфолио',
-   //       href: '/projects',
-   //    },
-   //    // {
-   //    //    name: 'Тест Lazyload',
-   //    //    href: '/test-lazyload',
-   //    // },
-   //    // {
-   //    //    name: 'Поиск',
-   //    //    href: '/search',
-   //    // },
-   //    {
-   //       name: 'Контакты',
-   //       href: '/contacts',
-   //    }
-   // ]
-
-
-
 
    let menuElements = props.menuObj.map(
       (li, index) => <li key={index}><span onClick={()=>{props.setShowHeader(false)}}><NavLink onClick={props.yesChangeAnimTopPanel} to={li.href} className={({isActive}) => isActive ? '_active' : ''}>{li.name}</NavLink></span></li>
    )
-
 
    return <>
 

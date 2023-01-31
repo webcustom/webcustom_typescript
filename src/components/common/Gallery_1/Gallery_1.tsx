@@ -5,25 +5,28 @@ import 'swiper/css/pagination';
 // import 'swiper/css/scrollbar';
 
 import styles from "./Gallery_1.module.sass";
-import React, {useEffect, useRef, useState} from "react";
+import React, {SetStateAction, useEffect, useRef, useState} from "react";
 import Popup from "../Popup/Popup";
 import SwiperGallery_1 from "../SwiperGallery_1/SwiperGallery_1";
+import {ProjectDetailGallery} from "../../../types/types";
 
 
+interface PropsType {
+   projectDetailGallery: ProjectDetailGallery
+}
 
 
-const Gallery_1 = (props) => {
-   // console.log(props)
+const Gallery_1: React.FC<PropsType> = (props) => {
+   console.log(props)
 
-   const [showPopup, setShowPopup] = useState(false);
-   const [numberSlide, setNumberSlide] = useState(0);
+   const [showPopup, setShowPopup] = useState<boolean>(false);
+   const [numberSlide, setNumberSlide] = useState<undefined | number | string>(0);
 
-   let showPopupGallery = (e) =>{
+   let showPopupGallery = (e: React.MouseEvent & React.ChangeEvent<HTMLDivElement>): void => {
       setNumberSlide(e.target.dataset.num)
       setShowPopup(true)
-         // console.log(e.target.dataset.num)
    }
-   let stopClick = e => {
+   let stopClick = (e: React.MouseEvent): void => {
       e.stopPropagation()
    }
 
@@ -46,7 +49,6 @@ const Gallery_1 = (props) => {
          </SwiperGallery_1>
       </Popup> : ''}
 
-      {/*{showPopup ? <Popup numberSlide={numberSlide} setShowPopup={setShowPopup} flag={showPopup} projectDetailGallery={props.projectDetailGallery}/> : ''}*/}
       </>
 };
 

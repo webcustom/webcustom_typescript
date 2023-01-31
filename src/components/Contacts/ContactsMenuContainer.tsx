@@ -3,10 +3,12 @@ import ContactsMenu from "./ContactsMenu";
 import ContactsForm from "./ContactsForm";
 
 
+interface PropsType {
+   setShowContacts: (showContacts: boolean) => void
+   showContacts: boolean
+}
 
-
-const ContactsMenuContainer = (props) => {
-   console.log(props)
+const ContactsMenuContainer: React.FC<PropsType> = (props) => {
    return <>
 
       <div className={props.showContacts ? "contactsMenu _show" : "contactsMenu"}>

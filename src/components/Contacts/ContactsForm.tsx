@@ -2,26 +2,21 @@ import React, {useState} from "react";
 import {useDispatch} from "react-redux";
 import {postMailThunkCreator} from "../../redux/contacts-reducer";
 import { useForm } from "react-hook-form";
+import {FormType} from "../../types/types";
 
 
 
-const ContactsForm = () => {
+
+
+const ContactsForm: React.FC = () => {
 
    const dispatch = useDispatch();
-
-
-   type FormType = {
-      yourname: string
-      youremail: string
-      yourmessage: string
-   }
-
 
    const { register, handleSubmit, formState: { errors }, reset} = useForm<FormType>({
       mode: 'onChange',
    });
 
-   const [succesForm, setSuccesForm] = useState(false);
+   const [succesForm, setSuccesForm] = useState<boolean>(false);
 
    const onSubmit = handleSubmit((data) => {
       reset()
@@ -59,7 +54,6 @@ const ContactsForm = () => {
          </form>
    </>
 }
-
 
 
 

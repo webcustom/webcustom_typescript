@@ -1,23 +1,22 @@
-import React, {Component, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './styles/main.sass';
 
-import {connect, Provider, useDispatch, useSelector} from "react-redux";
+import {Provider} from "react-redux";
 
-import {BrowserRouter, Route, Routes, useParams, useLocation, Outlet} from "react-router-dom";
+import {BrowserRouter, Route, Routes, useLocation, Outlet} from "react-router-dom";
 import store from "./redux/redux-store";
 
-import {withSuspense} from "./hoc/withSuspense.tsx";
+// import {withSuspense} from "./hoc/withSuspense";
 // import ContactsContainer from "./components/Contacts/ContactsContainer";
-import Header from "./components/Header/Header"
+// import Header from "./components/Header/Header"
 import PageMain from "./components/PageMain/PageMain";
 import {AnimatePresence} from "framer-motion"; //dist/framer-motion";
 import ProjectsContainer from "./components/Projects/ProjectsContainer";
 import ProjectDetailContainer from "./components/Projects/Project/ProjectDetail/ProjectDetailContainer";
 import NotFoundPage from "./components/common/NotFoundPage/NotFoundPage";
-// import SearchComponent from "./components/common/SearchComponent/SearchComponent";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Footer from "./components/common/Footer/Footer";
-import {inputSearchAutofocusAction} from "./redux/projects-reducer";
+// import {inputSearchAutofocusAction} from "./redux/projects-reducer";
 
 
 
@@ -27,7 +26,7 @@ import {inputSearchAutofocusAction} from "./redux/projects-reducer";
 
 // const SuspendedProjectsContainer = withSuspense(ProjectsContainer)
 
-const App = () => {
+const App: React.FC = () => {
    const location = useLocation();
 
    return(
@@ -65,24 +64,13 @@ const App = () => {
          </Routes>
       </AnimatePresence>
 
-
-      //    <Route
-      //       path={[
-      //          '/seguro-carro/simulacao/:journeyId/:userId',
-      //          '/seguro-carro/simulacao/:userId'
-      //       ]}
-      //   ... other props
-      // />
-
-
-
    )
 }
 
 
 const Layout = () => {
 
-   const [winMinHeight, setWinMinHeight] = useState(false);
+   const [winMinHeight, setWinMinHeight] = useState<number>(0);
 
    useEffect(() => {
       calcBrowserPanel()
