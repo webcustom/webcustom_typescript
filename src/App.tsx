@@ -6,16 +6,15 @@ import {connect, Provider, useDispatch, useSelector} from "react-redux";
 import {BrowserRouter, Route, Routes, useParams, useLocation, Outlet} from "react-router-dom";
 import store from "./redux/redux-store";
 
-import {withSuspense} from "./hoc/withSuspense.js";
+import {withSuspense} from "./hoc/withSuspense.tsx";
 // import ContactsContainer from "./components/Contacts/ContactsContainer";
 import Header from "./components/Header/Header"
-import ImageListElem from "./components/common/Lazyload/ImageListElem";
 import PageMain from "./components/PageMain/PageMain";
-import {AnimatePresence} from "framer-motion/dist/framer-motion";
+import {AnimatePresence} from "framer-motion"; //dist/framer-motion";
 import ProjectsContainer from "./components/Projects/ProjectsContainer";
 import ProjectDetailContainer from "./components/Projects/Project/ProjectDetail/ProjectDetailContainer";
 import NotFoundPage from "./components/common/NotFoundPage/NotFoundPage";
-import SearchComponent from "./components/common/SearchComponent/SearchComponent";
+// import SearchComponent from "./components/common/SearchComponent/SearchComponent";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Footer from "./components/common/Footer/Footer";
 import {inputSearchAutofocusAction} from "./redux/projects-reducer";
@@ -26,7 +25,7 @@ import {inputSearchAutofocusAction} from "./redux/projects-reducer";
 // const ProjectsContainer = React.lazy(() => import('./components/Projects/ProjectsContainer'));
 // const ProjectDetailContainer = React.lazy(() => import('./components/Projects/Project/ProjectDetail/ProjectDetailContainer'));
 
-
+// const SuspendedProjectsContainer = withSuspense(ProjectsContainer)
 
 const App = () => {
    const location = useLocation();
@@ -42,11 +41,11 @@ const App = () => {
                <Route index element={<PageMain/>}/>
                <Route path="projects/" element={<ProjectsContainer/>}>
                   <Route path="page/:pageNumber" element={<ProjectsContainer/>} />
-                  <Route path="cat-:catId" element={<ProjectsContainer/>} />
-                  <Route path="cat-:catId/page/:pageNumberCat" element={<ProjectsContainer/>} />
+                  <Route path="cat-:catSlug" element={<ProjectsContainer/>} />
+                  <Route path="cat-:catSlug/page/:pageNumberCat" element={<ProjectsContainer/>} />
                   <Route path="search" element={<ProjectsContainer/>}/>
                </Route>
-               <Route path="projects/:projectId" element={<ProjectDetailContainer/>} />
+               <Route path="projects/:projectSlug" element={<ProjectDetailContainer/>} />
 
                {/*<Route path="projects/" element={<ProjectsContainer/>}/>*/}
                {/*<Route path="projects/page/:pageNumber" element={<ProjectsContainer/>} />*/}
@@ -65,6 +64,17 @@ const App = () => {
             </Route>
          </Routes>
       </AnimatePresence>
+
+
+      //    <Route
+      //       path={[
+      //          '/seguro-carro/simulacao/:journeyId/:userId',
+      //          '/seguro-carro/simulacao/:userId'
+      //       ]}
+      //   ... other props
+      // />
+
+
 
    )
 }

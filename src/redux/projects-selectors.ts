@@ -15,7 +15,7 @@ export const getProjectsFilter = createSelector([getAllProjectsSelector, getSear
    // debugger;
    if(projects != '' && searchString != '') {
       return projects.filter(
-         project => project.title.rendered.toLowerCase().includes(searchString)
+         project => project.title.toLowerCase().includes(searchString)
       );
    }
 })

@@ -13,7 +13,7 @@ import Delayed from "../../utils/Delayed";
 const Projects = React.memo(props => {
 // const Projects = (props) => {
 
-   // console.log(props);
+   console.log(props);
    let time = 200
 
 

@@ -11,9 +11,7 @@ import {
    categoryProjectsAction,
    selectFetch, inputSearchAutofocusAction, collapsedCategoryListMobileAction,
 } from "../../redux/projects-reducer";
-import {
-   getAllProjectsSelector, getProjectsFilter,
-} from "../../redux/projects-selectors";
+import {getProjectsFilter} from "../../redux/projects-selectors";
 import Preloader from "../common/Preloader/Preloader";
 import AnimatedPage from "../../utils/AnimatedPage";
 import {NavLink, useNavigate, useParams, useSearchParams} from "react-router-dom";
@@ -22,64 +20,68 @@ import {abortRequestProjects, abortRequestProjectsCat} from "../../api/api";
 
 import {noChangeAnimTopPanel} from "../../utils/ChangeAnimTopPanel";
 
-
-
-
-import SlideToggle from "react-slide-toggle";
-
+import { SlideToggle } from '@todys/react-slide-toggle'
+import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 
 
 
-const ProjectsContainer = ({ match }) => {
+
+const ProjectsContainer: React.FC = () => {
 
 
+   let projects = useTypedSelector(state => state.projectsPage.projects);
+   let pageSize = useTypedSelector(state => state.projectsPage.pageSize);
+   let totalProjectCount = useTypedSelector(state => state.projectsPage.totalProjectCount);
+   let currentPage = useTypedSelector(state => state.projectsPage.currentPage);
+   let isFetching = useTypedSelector(state => state.projectsPage.isFetching);
+   let allSearchProjects = useTypedSelector(state => state.projectsPage.allSearchProjects); //useSelector(getAllProjectsSelector);
+   let searchProjects = useTypedSelector(getProjectsFilter);
+   let resultSearchProjects = useTypedSelector(state => state.projectsPage.resultSearchProjects);
+   let searchString = useTypedSelector(state => state.projectsPage.searchString);
+   let categoryProjects = useTypedSelector(state => state.projectsPage.categoryProjects);
+   let inputSearchAutofocus = useTypedSelector(state => state.projectsPage.inputSearchAutofocus);
+   let collapsedCategoryListMobile = useTypedSelector(state => state.projectsPage.collapsedCategoryListMobile); //useSelector(getAllProjectsSelector);
    //эти хуки позволяют обойтись без mapStateToProps и mapDispatchToProps
-   let projects = useSelector(state => state.projectsPage.projects);
-   let pageSize = useSelector(state => state.projectsPage.pageSize);
-   let totalProjectCount = useSelector(state => state.projectsPage.totalProjectCount);
-   let currentPage = useSelector(state => state.projectsPage.currentPage);
-   let isFetching = useSelector(state => state.projectsPage.isFetching);
-   let allSearchProjects = useSelector(state => state.projectsPage.allSearchProjects); //useSelector(getAllProjectsSelector);
+   // let projects = useSelector(state => state.projectsPage.projects);
+   // let pageSize = useSelector(state => state.projectsPage.pageSize);
+   // let totalProjectCount = useSelector(state => state.projectsPage.totalProjectCount);
+   // let currentPage = useSelector(state => state.projectsPage.currentPage);
+   // let isFetching = useSelector(state => state.projectsPage.isFetching);
+   // let allSearchProjects = useSelector(state => state.projectsPage.allSearchProjects); //useSelector(getAllProjectsSelector);
+   //
+   // let searchProjects = useSelector(getProjectsFilter);
+   // let resultSearchProjects = useSelector(state => state.projectsPage.resultSearchProjects);
+   // let searchString = useSelector(state => state.projectsPage.searchString);
+   //
+   // let categoryProjects = useSelector(state => state.projectsPage.categoryProjects);
 
-   let searchProjects = useSelector(getProjectsFilter);
-   let resultSearchProjects = useSelector(state => state.projectsPage.resultSearchProjects);
-   let searchString = useSelector(state => state.projectsPage.searchString);
+   // console.log(projects)
+   // debugger
 
-   let categoryProjects = useSelector(state => state.projectsPage.categoryProjects);
-   // let notFoundPage = useSelector(state => state.projectsPage.notFoundPage);
    const dispatch = useDispatch();
 
    let {pageNumber} = useParams(); // номер страницы основного раздела
    let {pageNumberCat} = useParams(); // номер страницы для категории
-
-   let {catId} = useParams(); // id категории
-
-
+   let {catSlug} = useParams(); // id категории
    const [searchParams, setSearchParams] = useSearchParams('') //useSearchParams используется для чтения и изменения строки запроса в URL-адресе
+
    let elemQuery = searchParams.get('searchElems')
 
    const navigate = useNavigate()
 
-   let inputSearchAutofocus = useSelector(state => state.projectsPage.inputSearchAutofocus);
-   // const [focusInputSearch, setFocusInputSearch] = useState(false);
-   // let animTopPanel = useSelector(state => state.projectsPage.animTopPanel);
-
+   // let inputSearchAutofocus = useSelector(state => state.projectsPage.inputSearchAutofocus);
+   // let collapsedCategoryListMobile = useSelector(state => state.projectsPage.collapsedCategoryListMobile); //useSelector(getAllProjectsSelector);
 
    const [activeMenuCat, setActiveMenuCat] = useState(false);
-
-   let collapsedCategoryListMobile = useSelector(state => state.projectsPage.collapsedCategoryListMobile); //useSelector(getAllProjectsSelector);
 
 
 
 
    useEffect(() => {
-
       document.body.classList.remove('_noScroll');
-
       dispatch(selectFetch(false))
-      if(catId == undefined) {
-
+      if(catSlug == undefined) {
          if (pageNumber == undefined) {
             currentPage = 1
          } else {
@@ -89,53 +91,42 @@ const ProjectsContainer = ({ match }) => {
             dispatch(categoryProjectsAction(undefined))
          }
          if(!elemQuery){
-
             dispatch(getProjectsThunkCreator(currentPage, pageSize))
          }
-
       }else {
          if (pageNumberCat == undefined) {
             currentPage = 1
          } else {
             currentPage = Number(pageNumberCat)
-
          }
-         dispatch(getCategoryProjectsThunkCreator(Number(catId), currentPage, pageSize))
+         dispatch(getCategoryProjectsThunkCreator(catSlug, currentPage, pageSize))
       }
-
       return () => {
          if(abortRequestProjects[currentPage]) { //если запрос api axios не успел завершиться тогда мы его отменяем
             abortRequestProjects[currentPage].abort()
          }
-         if(abortRequestProjectsCat[catId+'-'+currentPage]) {
-            abortRequestProjectsCat[catId+'-'+currentPage].abort()
+         if(abortRequestProjectsCat[catSlug+'-'+currentPage]) {
+            abortRequestProjectsCat[catSlug+'-'+currentPage].abort()
          }
-         // console.log('размонтирован')
-         // isMounted = false
          dispatch(inputSearchAutofocusAction(false)) //убираем автофокус на input search
-
       };
-   },[/*catId/*pageNumber , pageSize, dispatch, currentPage*/]);
+   },[/*catSlug/*pageNumber , pageSize, dispatch, currentPage*/]);
 
 
 
 
 
    // input поиска
-   const changeInputSearch = (e) => {
-
+   const changeInputSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
       const query = e.target.value.toLowerCase();
-      // debugger
       if(query){
          setSearchParams({searchElems: query})
-         // navigate('/projects/search')
       }else{
          setSearchParams({searchElems: ''})
       }
       if (allSearchProjects == '') {
-         dispatch(getAllProjectsThunkCreator(query));
+         dispatch(getAllProjectsThunkCreator(/*query*/));
       }
-
       dispatch(inputSearchAutofocusAction(true)) //ставим автофокус на input search
    }
 
@@ -151,21 +142,15 @@ const ProjectsContainer = ({ match }) => {
          if(window.location.pathname != '/projects/search') {
             navigate('/projects/search?searchElems='+elemQuery)
             noChangeAnimTopPanel()
-
-
          }
          setActiveMenuCat(true)
-
       }
-
       if (searchProjects != undefined) {
          dispatch(resultSearchProjectsAction(searchProjects))
       }
-
       if (elemQuery == ''){
          dispatch(resultSearchProjectsAction(''))
          navigate('/projects')
-         // navigate('/projects')
       }
       if (elemQuery == null && isMounted){
          setTimeout(() => {
@@ -173,12 +158,10 @@ const ProjectsContainer = ({ match }) => {
             dispatch(searchStringAction(''))
          }, 500);
       }
-
       return () => {
          isMounted = false
 
       }
-
    },[searchProjects, allSearchProjects, elemQuery])
 
 
@@ -186,7 +169,8 @@ const ProjectsContainer = ({ match }) => {
 
 
    //функции переключения страниц
-   const onPageChanged = (pageNum) => {
+   const onPageChanged = (pageNum: number) => {
+      // debugger
       if(pageNum != currentPage) {
          let target;
          if (pageNum > 1) {
@@ -199,27 +183,27 @@ const ProjectsContainer = ({ match }) => {
       }
    }
 
-   const onPageChangedCat = (pageNum, catId) => {
+   const onPageChangedCat = (pageNum: number, catSlug: string) => {
       if(pageNum != currentPage) {
          let target;
          if (pageNum > 1) {
-            target = `/projects/cat-${catId}/page/${pageNum}`;
+            target = `/projects/cat-${catSlug}/page/${pageNum}`;
          } else {
-            target = `/projects/cat-${catId}`;
+            target = `/projects/cat-${catSlug}`;
          }
          navigate(target);
-         // dispatch(getCategoryProjectsThunkCreator(catId, pageNum, pageSize))
+         // dispatch(getCategoryProjectsThunkCreator(catSlug, pageNum, pageSize))
       }
    }
 
 
 
-   console.log(catId)
-   console.log(currentPage)
-   console.log(elemQuery)
+   // console.log(catSlug)
+   // console.log(currentPage)
+   // console.log(projects)
+
 
    const setActive = ({isActive}) => isActive ? '_active' : '';
-   // debugger
    return <>
       <div className={'sectionAfter'}>
          <div className="contain">
@@ -250,10 +234,10 @@ const ProjectsContainer = ({ match }) => {
 
                            <div className={'categoryListWrap'} ref={setCollapsibleElement}>
                               <div className="categoryList">
-                                 {/*<p><NavLink to='/projects' onClick={()=>{noChangeAnimTopPanel();  /*dispatch(getProjectsThunkCreator(currentPage, pageSize))*!/} className={({isActive}) => isActive && catId == undefined && !elemQuery ? '_active' : ''}>Front-end разработка</NavLink></p>*/}
-                                 <p><NavLink end to='/projects' onClick={()=>{noChangeAnimTopPanel();}}  className={ ({isActive}) => isActive || catId == undefined && currentPage >= 1 && !elemQuery ? '_active' : ''}>Front-end разработка</NavLink></p>
-                                 <p><NavLink to='/projects/cat-685' onClick={()=>{noChangeAnimTopPanel();}} className={setActive}>Back-end разработка</NavLink></p>
-                                 <p><NavLink to='/projects/cat-688' onClick={()=>{noChangeAnimTopPanel();}} className={setActive}>Дизайн</NavLink></p>
+                                 {/*<p><NavLink to='/projects' onClick={()=>{noChangeAnimTopPanel();  /*dispatch(getProjectsThunkCreator(currentPage, pageSize))*!/} className={({isActive}) => isActive && catSlug == undefined && !elemQuery ? '_active' : ''}>Front-end разработка</NavLink></p>*/}
+                                 <p><NavLink end to='/projects' onClick={()=>{noChangeAnimTopPanel();}}  className={ ({isActive}) => isActive || catSlug == undefined && currentPage >= 1 && !elemQuery ? '_active' : ''}>Front-end разработка</NavLink></p>
+                                 <p><NavLink to='/projects/cat-back-dev' onClick={()=>{noChangeAnimTopPanel();}} className={setActive}>Back-end разработка</NavLink></p>
+                                 <p><NavLink to='/projects/cat-design' onClick={()=>{noChangeAnimTopPanel();}} className={setActive}>Дизайн</NavLink></p>
                               </div>
                            </div>
 
@@ -279,7 +263,7 @@ const ProjectsContainer = ({ match }) => {
                {categoryProjects != undefined && !resultSearchProjects.length
                   ? <div>
                      <div className='_mt30'><Projects projects={categoryProjects}/></div>
-                     <Paginator currentPage={currentPage} totalItemsCount={totalProjectCount} pageSize={pageSize} onPageChanged={onPageChangedCat} catId={catId}/>
+                     <Paginator currentPage={currentPage} totalItemsCount={totalProjectCount} pageSize={pageSize} onPageChanged={onPageChangedCat} catSlug={catSlug}/>
                   </div> : ''}
 
                {resultSearchProjects.length

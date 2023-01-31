@@ -6,10 +6,22 @@ import {NavLink, useNavigate} from "react-router-dom";
 import Project from "../Project";
 import Gallery_1 from "../../../common/Gallery_1/Gallery_1";
 import NotFoundPage from "../../../common/NotFoundPage/NotFoundPage";
+import {ProjectType} from "../../Projects";
+
+
+
+// interface PropsType{
+//    project: ProjectType
+//    name: string
+//    src: string
+//    time: number
+// }
 
 
 
 const ProjectDetail = (props) => {
+
+   console.log(props)
 
    const navigate = useNavigate();
 

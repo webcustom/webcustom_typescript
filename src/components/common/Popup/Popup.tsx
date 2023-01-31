@@ -1,10 +1,5 @@
 import React, {Suspense, useEffect, useRef, useState} from "react";
-import Preloader from "../Preloader/Preloader";
-import styles from './Popup.module.sass';
-import {Swiper, SwiperSlide} from 'swiper/react/swiper-react.js';
 import SwiperCore, { Lazy } from 'swiper';
-
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
 
 
@@ -14,7 +9,7 @@ SwiperCore.use([ Lazy ]); //для работы lazyload swiper
 
 
 const Popup = (props) => {
-   console.log(props.children.props.children)
+   console.log(props)
 
    const [isShow, setShow] = useState(false);
    const [isShow_2, setShow_2] = useState(false);

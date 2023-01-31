@@ -11,14 +11,10 @@ let reducers = combineReducers({
    // form: formReducer, // когда подключаем form-reducer обязательно пишем form: ...
 });
 
-// function todos(state = [], action) {
-//    switch (action.type) {
-//       case 'ADD_TODO':
-//          return state.concat([action.text])
-//       default:
-//          return state
-//    }
-// }
+
+
+export type RootState = ReturnState<typeof combineReducers>
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducers, composeEnhancers(
    applyMiddleware(thunkMiddleware)

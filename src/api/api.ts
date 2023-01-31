@@ -33,6 +33,7 @@ export const projectsAPI = {
    getProjects(currentPage = 1, pageSize = 5) {
       //запрос должен иметь индивидуальный сигнал для каждой страницы каждого раздела
       abortRequestProjects[currentPage] = new AbortController() //axios.CancelToken.source() //необходимо для прерывания асинхронного запроса
+
       return instance.get(`posts?page=${currentPage}&per_page=${pageSize}&acf_format=standard`, { signal: abortRequestProjects[currentPage].signal /*cancelToken: source.token*/}).then(response => response).catch(()=>{
 
          if (abortRequestProjects[currentPage].signal.aborted) {

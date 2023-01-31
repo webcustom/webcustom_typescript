@@ -4,6 +4,24 @@ import {NavLink} from "react-router-dom";
 import {yesChangeAnimTopPanel} from "../../../utils/ChangeAnimTopPanel";
 
 
+
+// interface ProjectType{
+//    id: number
+//    // acf: {
+//    //    project_img: string
+//    // }
+//    // title: {
+//    //    rendered: string
+//    // }
+// }
+
+// interface PropsType{
+//    project: any
+//    name: string
+//    src: string
+//    time: number
+// }
+
 const Project = ({project, name, src, time}) => {
    // debugger;
    const [showElem, setShowElem] = useState(false);
@@ -24,12 +42,12 @@ const Project = ({project, name, src, time}) => {
       }
    },[])
 
-   return(
-      <NavLink onClick={yesChangeAnimTopPanel} className={`${styles.projectItem} ${showElem ? styles._show : ''}`} to={"/projects/" + project.id} props={project.id} >
+   return <>
+      <NavLink onClick={yesChangeAnimTopPanel} className={`${styles.projectItem} ${showElem ? styles._show : ''}`} to={"/projects/" + project.slug} props={project.slug} >
          <div className={styles.img} style={{backgroundImage: `url(${src})` }}></div>
          <p className={styles.name}>{name}</p>
       </NavLink>
-   )
+   </>
 };
 
 export default Project;

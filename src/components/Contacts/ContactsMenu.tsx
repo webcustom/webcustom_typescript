@@ -2,7 +2,7 @@ import React from "react";
 
 
 
-const ContactsMenu = (props) => {
+const ContactsMenu = () => {
 
    return <>
 

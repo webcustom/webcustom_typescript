@@ -25,8 +25,10 @@ const Letter = (props) => {
 const Logo_1 = (props) => {
    const [gearAnim, setGearAnim] = useState(false);
    useEffect(() => {
-      setGearAnim(true)
-   })
+      setTimeout(function() {
+         setGearAnim(true)
+      },200)
+   },[])
 
    let arrLogo = 'Web_Custom'.split('')
 
@@ -39,6 +41,7 @@ const Logo_1 = (props) => {
 
    let condition_1 = props.addClass && props.addClass
    let condition_2 = props.animate ? 'logoCode_1 _animateActive '+ condition_1 : 'logoCode_1 '+ condition_1
+   // console.log(gearAnim)
    return <>
 
       <div className={condition_2}>

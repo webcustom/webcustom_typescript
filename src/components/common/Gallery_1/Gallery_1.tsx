@@ -1,18 +1,13 @@
-// import Swiper core and required modules
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-
-import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';//'SvgSpriteImg/react';
-
 //Import Swiper styles
-import 'swiper/swiper.scss';
-import 'swiper/modules/navigation/navigation.scss';
-import 'swiper/modules/pagination/pagination.scss';
-import 'swiper/modules/scrollbar/scrollbar.scss';
+import 'swiper/css';
+// import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+// import 'swiper/css/scrollbar';
+
 import styles from "./Gallery_1.module.sass";
 import React, {useEffect, useRef, useState} from "react";
 import Popup from "../Popup/Popup";
 import SwiperGallery_1 from "../SwiperGallery_1/SwiperGallery_1";
-
 
 
 
@@ -34,8 +29,8 @@ const Gallery_1 = (props) => {
 
    let projectGalleryElements = undefined;
    if(props.projectDetailGallery) {
-      projectGalleryElements = props.projectDetailGallery.map(
-         (elem, index) => <div key={elem.gallery_img.id} className={styles.item} style={{backgroundImage: `url(${elem.gallery_img.sizes.thumbnail})` }} data-num={index} onClick={showPopupGallery} data-detail={elem.gallery_img.url}></div>
+      projectGalleryElements = props.projectDetailGallery.miniature.map(
+         (elem, index) => <div key={index} className={styles.item} style={{backgroundImage: `url(${elem})` }} data-num={index} onClick={showPopupGallery}></div>
       );
    }
 
