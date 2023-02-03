@@ -2,7 +2,6 @@ import {projectsAPI} from "../api/api";
 import {ThunkAction} from "redux-thunk";
 import {RootState} from "./redux-store";
 import {Dispatch} from "redux";
-// import ProjectDetail from "../components/Projects/Project/ProjectDetail/ProjectDetail";
 import {ProjectDetailType, ProjectType} from "../types/types";
 
 
@@ -23,8 +22,7 @@ const COLLAPSED_CATEGORY_LIST_MOBILE = 'OPENED_CATEGORY_LIST_MOBILE';
 
 
 interface InitialProjectsStateTypes{
-   projects: Array<ProjectType> //| null;
-   // projectsLazy: any[];
+   projects: Array<ProjectType>;
    pageSize: number;
    totalProjectCount: number;
    currentPage: number;
@@ -108,9 +106,7 @@ type ProjectsActions = SelectPageActionType | SetProjectsActionType | TotalCount
 
 
 let initialState: InitialProjectsStateTypes = {
-   projects: [] as Array<ProjectType>, //as Array<ProjectsTypee>,
-   // projects: [{title: 'qwe', anons_img: 'asdasd', id: 1111, link: 'asdasd', slug: 'asdasd'}],
-   // projectsLazy: [],
+   projects: [] as Array<ProjectType>,
    pageSize: 16, //количество элементов на странице
    totalProjectCount: 0, //количество элементов всего
    currentPage: 1,
@@ -138,8 +134,6 @@ let initialState: InitialProjectsStateTypes = {
 
 
 const projectsReducer = (state = initialState, action: ProjectsActions): InitialProjectsStateTypes => {
-   // console.log(action);
-   // debugger;
 
    switch(action.type){
       case SELECT_PAGE: {
@@ -149,7 +143,7 @@ const projectsReducer = (state = initialState, action: ProjectsActions): Initial
       }
       case SET_PROJECTS: {
          return {
-            ...state, projects: action.payload //перезаписываем массив projects
+            ...state, projects: action.payload
          }
       }
       case TOTAL_COUNT: {
@@ -174,14 +168,12 @@ const projectsReducer = (state = initialState, action: ProjectsActions): Initial
       }
 
       case ALL_SEARCH_PROJECTS: {
-         // debugger;
          return {
             ...state, allSearchProjects: action.payload
          }
       }
 
       case RESULT_SEARCH_PROJECTS: {
-         // debugger;
          return {
             ...state, resultSearchProjects: action.payload
          }
@@ -221,9 +213,6 @@ const projectsReducer = (state = initialState, action: ProjectsActions): Initial
 
 
 export const setProjects = (projects: Array<ProjectType>): SetProjectsActionType => {
-   // console.log(projects[0].anons_img)
-   // debugger
-   // projects[2]
    return{
       type: SET_PROJECTS,
       payload: projects
@@ -327,7 +316,7 @@ export const getProjectDetailThunkCreator = (projectSlug: string | undefined): T
 }
 
 
-//санки thunkCreator возвращает функцию которую можно задиспатчить
+//thunkCreator возвращает функцию которую можно задиспатчить
 export const getProjectsThunkCreator = (currentPage: number, pageSize: number): ThunkType => async (dispatch: DispatchType) => {
    // console.log(getState())
    dispatch(selectFetch(true)); //показываем прелоадер
@@ -336,7 +325,6 @@ export const getProjectsThunkCreator = (currentPage: number, pageSize: number): 
    let data = await projectsAPI.getProjects(currentPage, pageSize);
 
    if (data) {
-      // console.log(data)
       dispatch(setProjects(data.data))
       dispatch(setTotalCount(Number(data.headers['x-wp-total']))) //общее количество всех записей получаем из заголовка запроса параметра x-wp-total
       dispatch(selectFetch(false)); //когда приходит ответ с сервера убираем прелоадер
@@ -371,20 +359,6 @@ export const getCategoryProjectsThunkCreator = (catSlug: string, currentPage: nu
 
 }
 
-//==========================================================
-//==========================================================
-//==========================================================
-
-// export const getQqq = (): ThunkType => async (dispatch: DispatchType, getState) => {
-//    // debugger
-//    let data = await testReq.testRequest()
-//    // console.log(data)
-//
-// }
-
-//==========================================================
-//==========================================================
-//==========================================================
 
 
 export default projectsReducer;

@@ -5,7 +5,7 @@ import 'swiper/css/pagination';
 // import 'swiper/css/scrollbar';
 
 import styles from "./Gallery_1.module.sass";
-import React, {SetStateAction, useEffect, useRef, useState} from "react";
+import React, {useState} from "react";
 import Popup from "../Popup/Popup";
 import SwiperGallery_1 from "../SwiperGallery_1/SwiperGallery_1";
 import {ProjectDetailGallery} from "../../../types/types";

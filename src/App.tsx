@@ -6,9 +6,6 @@ import {Provider} from "react-redux";
 import {BrowserRouter, Route, Routes, useLocation, Outlet} from "react-router-dom";
 import store from "./redux/redux-store";
 
-// import {withSuspense} from "./hoc/withSuspense";
-// import ContactsContainer from "./components/Contacts/ContactsContainer";
-// import Header from "./components/Header/Header"
 import PageMain from "./components/PageMain/PageMain";
 import {AnimatePresence} from "framer-motion"; //dist/framer-motion";
 import ProjectsContainer from "./components/Projects/ProjectsContainer";
@@ -16,7 +13,6 @@ import ProjectDetailContainer from "./components/Projects/Project/ProjectDetail/
 import NotFoundPage from "./components/common/NotFoundPage/NotFoundPage";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Footer from "./components/common/Footer/Footer";
-// import {inputSearchAutofocusAction} from "./redux/projects-reducer";
 
 
 
@@ -24,7 +20,6 @@ import Footer from "./components/common/Footer/Footer";
 // const ProjectsContainer = React.lazy(() => import('./components/Projects/ProjectsContainer'));
 // const ProjectDetailContainer = React.lazy(() => import('./components/Projects/Project/ProjectDetail/ProjectDetailContainer'));
 
-// const SuspendedProjectsContainer = withSuspense(ProjectsContainer)
 
 const App: React.FC = () => {
    const location = useLocation();
@@ -48,12 +43,9 @@ const App: React.FC = () => {
 
                {/*<Route path="projects/" element={<ProjectsContainer/>}/>*/}
                {/*<Route path="projects/page/:pageNumber" element={<ProjectsContainer/>} />*/}
-
                {/*<Route path="projects/page/:pageNumber" element={<ProjectsContainer/>} />*/}
                {/*<Route path="projects/cat-:catId" element={<ProjectsContainer/>} />*/}
                {/*<Route path="projects/cat-:catId/page/:pageNumberCat" element={<ProjectsContainer/>} />*/}
-
-
                {/*<Route path="test-lazyload" element={<ImageListElem/>}/>*/}
                {/*<Route path="/search" element={<SearchComponent/>}/>*/}
                {/*<Route path="/contacts" element={withSuspense(ContactsContainer)}/>*/}

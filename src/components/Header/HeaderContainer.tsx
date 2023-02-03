@@ -15,8 +15,6 @@ const HeaderContainer: React.FC = () => {
    const [showContacts, setShowContacts] = useState<boolean>(false);
    const [showHeader, setShowHeader] = useState<boolean>(false);
 
-
-
    let menuObj = [
       {
          name: 'Главная',

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './Preloader.module.sass';
 
-let Preloader = (props) => {
+let Preloader = () => {
    return <div className={styles.preloader_2}>
       <span>l</span>
       <span>o</span>

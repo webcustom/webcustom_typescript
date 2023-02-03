@@ -25,7 +25,6 @@ let Paginator: React.FC<PropsType> = ({totalProjectCount, pageSize, currentPage,
    let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1; //тут получаем номер первого элемента в порции
    let rightPortionPageNumber = portionNumber * portionSize; //тут получаем номер последнего элемента в порции
 
-   // debugger
 
    return <>
       {pages.length > 1 ?

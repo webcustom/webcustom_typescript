@@ -1,5 +1,4 @@
 import React, {useEffect, useRef} from "react";
-// import {Swiper, SwiperSlide} from "swiper/react/swiper-react";
 import {A11y, Navigation, Pagination, Scrollbar} from "swiper";
 import Preloader from "../Preloader/Preloader";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -8,7 +7,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 const  SwiperGallery_1 = (props) => {
 
-   // console.log(props)
 
    const swiperRef = useRef(null); //ссылка для взаймодействия со слайдером
 

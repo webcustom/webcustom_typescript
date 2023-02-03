@@ -1,15 +1,6 @@
 
 
 
-
-// export type ProjectsType = {
-//     anons_img: string
-//     id: number
-//     link: string
-//     slug: string
-//     title: string
-// }
-
 export interface ProjectType{
     id: number
     title: string

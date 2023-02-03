@@ -1,9 +1,6 @@
 import React, {Suspense, useEffect} from 'react';
 import Preloader from "../components/common/Preloader/Preloader";
-// import {lazyloadImg} from "../utils/lazyloadImg";
-// import {Route} from "react-router-dom";
-// import PageMain from "../components/PageMain/PageMain";
-// import Delayed from "../utils/Delayed";
+
 
 export interface HOCProps {
    test: number;

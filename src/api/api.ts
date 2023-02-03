@@ -2,13 +2,13 @@ import axios, {AxiosResponse} from 'axios';
 import {FormType, ProjectDetailType, ProjectType} from "../types/types";
 
 
-const instance = axios.create({
-   withCredentials: true, //передаем дополнительный параметр (если мы авторизованны на перекрестном сайте то авторизация подтвердится)
-   baseURL: 'https://web-custom.store/wp-json/wp/v2/', //подставляется автоматически где был baseUrl
-   // headers: { //передаем дополнительным параметром ключь апи который должен быть выдан бекендером
-   //    "API-KEY": "MfpixyiDWLmcet2GX7bjqjiPY9mpbtmG" //все запросы кроме get требуют ключ
-   // }
-})
+// const instance = axios.create({
+//    withCredentials: true, //передаем дополнительный параметр (если мы авторизованны на перекрестном сайте то авторизация подтвердится)
+//    baseURL: 'https://web-custom.store/wp-json/wp/v2/', //подставляется автоматически где был baseUrl
+//    // headers: { //передаем дополнительным параметром ключь апи который должен быть выдан бекендером
+//    //    "API-KEY": "MfpixyiDWLmcet2GX7bjqjiPY9mpbtmG" //все запросы кроме get требуют ключ
+//    // }
+// })
 
 
 const instanceWebcustomForm = axios.create({
@@ -39,8 +39,8 @@ export let abortRequestProjects: any = {} // переменная для отм�
 export let abortRequestProjectsCat: any = {} // переменная для отмены запроса проектов определенной категории
 export let abortRequestProjectsDetail: any = {}
 
-
-//для того что бы вывести поля acf нужно добавить в конце запроса &acf_format=standart либо нужно настроить вывод отдельно каждого поля , о том как это сделать можно прочитать здесь https://support.advancedcustomfields.com/forums/topic/acf-rest-api-image-only-shows-attachment-id/
+//для того что бы вывести поля acf нужно добавить в конце запроса &acf_format=standart либо нужно настроить вывод отдельно каждого поля,
+// о том как это сделать можно прочитать здесь https://support.advancedcustomfields.com/forums/topic/acf-rest-api-image-only-shows-attachment-id/
 
 
 
@@ -107,14 +107,10 @@ export const projectsAPI = {
 export const contactsAPI = {
    postMail(obj: FormType){
       const formData = new FormData();
-      // const formData = {yourname: name}
+
       formData.append('yourname', obj.yourname)
       formData.append('youremail', obj.youremail)
       formData.append('yourmessage', obj.yourmessage)
-
-      // console.log(formData)
-      // debugger;
-
 
       return instanceWebcustomForm.post(`contact-forms/1051/feedback`, formData)//.then(function (response) {
          // console.log(JSON.stringify(response.data));
@@ -127,5 +123,3 @@ export const contactsAPI = {
 
 
 
-// http://newlook.vokayly7.beget.tech/wp-json/wcra/v1/wcra_test/?secret_key=MfpixyiDWLmcet2GX7bjqjiPY9mpbtmG
-// http://newlook.vokayly7.beget.tech/wp-json/acf/v3/

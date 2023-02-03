@@ -14,9 +14,6 @@ interface PropsType {
 
 const Popup: React.FC<PropsType> = (props) => {
 
-
-   // console.log(props)
-
    const [isShow, setShow] = useState<boolean>(false);
    const [isShow_2, setShow_2] = useState<boolean>(false);
 

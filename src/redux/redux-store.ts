@@ -1,7 +1,6 @@
 import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import projectsReducer from "./projects-reducer";
 import thunkMiddleware from "redux-thunk";
-// import { reducer as formReducer } from 'redux-form';
 
 
 

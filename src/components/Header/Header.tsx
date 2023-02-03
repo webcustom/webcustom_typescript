@@ -42,11 +42,7 @@ const Header: React.FC<PropsType> = (props) => {
          <div className={'contain'}>
 
             {/*<img className={location.pathname != '/' ? 'logo_1' : 'logo_1 _hide'} src={logoSrc} alt="logo"/>*/}
-
             <Logo_1 addClass={location.pathname == '/' && !props.showHeader ? '_hide' : ''}/>
-
-
-
 
 
             <nav className={'menu_1'}>

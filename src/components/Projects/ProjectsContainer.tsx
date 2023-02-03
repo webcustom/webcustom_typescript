@@ -17,16 +17,11 @@ import AnimatedPage from "../../utils/AnimatedPage";
 import {NavLink, useNavigate, useParams, useSearchParams} from "react-router-dom";
 import Paginator from "../common/Paginator/Paginator";
 import {abortRequestProjects, abortRequestProjectsCat} from "../../api/api";
-
 import {noChangeAnimTopPanel} from "../../utils/ChangeAnimTopPanel";
-
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 
-// import { SlideToggle } from '@todys/react-slide-toggle'
 // @ts-ignore (typescript игнорирует следующую строку)
 import SlideToggle from "react-slide-toggle";
-
-
 
 
 
@@ -46,24 +41,9 @@ const ProjectsContainer: React.FC = () => {
    let categoryProjects = useTypedSelector(state => state.projectsPage.categoryProjects);
    let inputSearchAutofocus = useTypedSelector(state => state.projectsPage.inputSearchAutofocus);
    let collapsedCategoryListMobile = useTypedSelector(state => state.projectsPage.collapsedCategoryListMobile); //useSelector(getAllProjectsSelector);
-   //эти хуки позволяют обойтись без mapStateToProps и mapDispatchToProps
    // let projects = useSelector(state => state.projectsPage.projects);
-   // let pageSize = useSelector(state => state.projectsPage.pageSize);
-   // let totalProjectCount = useSelector(state => state.projectsPage.totalProjectCount);
-   // let currentPage = useSelector(state => state.projectsPage.currentPage);
-   // let isFetching = useSelector(state => state.projectsPage.isFetching);
-   // let allSearchProjects = useSelector(state => state.projectsPage.allSearchProjects); //useSelector(getAllProjectsSelector);
-   //
-   // let searchProjects = useSelector(getProjectsFilter);
-   // let resultSearchProjects = useSelector(state => state.projectsPage.resultSearchProjects);
-   // let searchString = useSelector(state => state.projectsPage.searchString);
-   //
-   // let categoryProjects = useSelector(state => state.projectsPage.categoryProjects);
 
 
-
-   // console.log(searchProjects)
-   // debugger
 
    const dispatch = useDispatch();
 
@@ -74,9 +54,6 @@ const ProjectsContainer: React.FC = () => {
 
    let elemQuery = searchParams.get('searchElems')
    const navigate = useNavigate()
-
-
-   // const [activeMenuCat, setActiveMenuCat] = useState(false);
 
 
 
@@ -149,7 +126,6 @@ const ProjectsContainer: React.FC = () => {
             navigate('/projects/search?searchElems='+elemQuery)
             noChangeAnimTopPanel()
          }
-         // setActiveMenuCat(true)
       }
       if (searchProjects != undefined) {
          dispatch(resultSearchProjectsAction(searchProjects))
@@ -164,9 +140,6 @@ const ProjectsContainer: React.FC = () => {
             dispatch(searchStringAction(''))
          }, 500);
       }
-
-
-
 
       return () => {
          isMounted = false
@@ -218,11 +191,7 @@ const ProjectsContainer: React.FC = () => {
       initialBox = ''
       exitBox = ''
    }
-   // console.log(catSlug)
-   // console.log(initialBox)
-   // console.log(collapsedCategoryListMobile)
 
-   // debugger
 
 
 
