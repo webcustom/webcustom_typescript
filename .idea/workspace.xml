@@ -3,21 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="487b390f-81d4-45fe-87fa-1d64072de4dc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/HeaderContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/HeaderContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Projects/Projects.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Projects/Projects.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Projects/ProjectsContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Projects/ProjectsContainer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/common/Gallery_1/Gallery_1.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Gallery_1/Gallery_1.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Paginator/Paginator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Paginator/Paginator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Popup/Popup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Popup/Popup.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Preloader/Preloader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Preloader/Preloader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/SwiperGallery_1/SwiperGallery_1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/SwiperGallery_1/SwiperGallery_1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hoc/withSuspense.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/withSuspense.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/projects-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/projects-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/redux-store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/redux-store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +56,7 @@
       <workItem from="1675074335691" duration="33152000" />
       <workItem from="1675163623556" duration="6485000" />
       <workItem from="1675291397950" duration="685000" />
-      <workItem from="1675419330874" duration="1121000" />
+      <workItem from="1675419330874" duration="2877000" />
     </task>
     <servers />
   </component>

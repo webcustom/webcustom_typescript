@@ -17,7 +17,6 @@ interface PropsType {
 
 
 const Gallery_1: React.FC<PropsType> = (props) => {
-   console.log(props)
 
    const [showPopup, setShowPopup] = useState<boolean>(false);
    const [numberSlide, setNumberSlide] = useState<undefined | number | string>(0);

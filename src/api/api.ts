@@ -11,6 +11,8 @@ import {FormType, ProjectDetailType, ProjectType} from "../types/types";
 // })
 
 
+
+
 const instanceWebcustomForm = axios.create({
    withCredentials: true, //передаем дополнительный параметр (если мы авторизованны на перекрестном сайте то авторизация подтвердится)
    baseURL: 'https://web-custom.store/wp-json/contact-form-7/v1/', //подставляется автоматически где был baseUrl

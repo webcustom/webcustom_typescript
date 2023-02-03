@@ -329,6 +329,7 @@ export const getProjectsThunkCreator = (currentPage: number, pageSize: number): 
       dispatch(setTotalCount(Number(data.headers['x-wp-total']))) //общее количество всех записей получаем из заголовка запроса параметра x-wp-total
       dispatch(selectFetch(false)); //когда приходит ответ с сервера убираем прелоадер
    }
+
 }
 
 
