@@ -21,7 +21,7 @@ const HeaderContainer: React.FC = () => {
          href: '/',
       },
       {
-         name: 'Портфолио',
+         name: 'Мои работы',
          href: '/projects',
       },
    ] as Array<MenuObjType>

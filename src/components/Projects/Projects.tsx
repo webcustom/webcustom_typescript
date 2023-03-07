@@ -6,6 +6,7 @@ import {ProjectType} from "../../types/types";
 
 interface PropsType{
     projects: Array<ProjectType>
+    time?: number
 }
 
 
@@ -16,15 +17,15 @@ interface PropsType{
 
 
 const Projects: React.FC<PropsType> = React.memo(props => {
-
-   let time = 200
-   let projectElements = props.projects.map(
-      project => {
-         time += 100
-         return <Project project={project} key={project.id} name={project.title} src={project.anons_img} time={time}/>
-      }
-   );
-   return <>
+    let timeLimit = props.time ? props.time : 100
+    let time = 200
+    let projectElements = props.projects.map(
+       project => {
+          time += timeLimit
+          return <Project project={project} key={project.id} name={project.title} src={project.anons_img} time={time}/>
+       }
+    );
+    return <>
          <div className={styles.projectsWrap}>
             {projectElements}
          </div>

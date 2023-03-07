@@ -17,12 +17,13 @@ const SEARCH_STRING = 'SEARCH_STRING';
 const CATEGORY_PROJECTS = 'CATEGORY_PROJECTS';
 const INPUT_SEARCH_AUTOFOCUS = 'INPUT_SEARCH_AUTOFOCUS';
 const COLLAPSED_CATEGORY_LIST_MOBILE = 'OPENED_CATEGORY_LIST_MOBILE';
-
+const SET_MAIN_PROJECTS = 'SET_MAIN_PROJECTS';
 
 
 
 interface InitialProjectsStateTypes{
    projects: Array<ProjectType>;
+   projectsMain: Array<ProjectType>;
    pageSize: number;
    totalProjectCount: number;
    currentPage: number;
@@ -48,6 +49,10 @@ interface SetProjectsActionType{
    payload: Array<ProjectType>
 }
 
+interface SetMainProjectsActionType{
+   type: typeof SET_MAIN_PROJECTS;
+   payload: Array<ProjectType>
+}
 
 interface TotalCountActionType{
    type: typeof TOTAL_COUNT;
@@ -100,13 +105,14 @@ interface SetProjectDetailActionType{
 
 type ProjectsActions = SelectPageActionType | SetProjectsActionType | TotalCountActionType | SetProjectDetailActionType | SelectFetchActionType
     | ClearProjectDetailActionType | AllSearchProjectsActionType | ResultSearchProjectsActionType | SearchStringActionType | CategoryProjectsActionType
-    | InputSearchAutofocusActionType | CollapsedCateoryListMobileActionType
+    | InputSearchAutofocusActionType | CollapsedCateoryListMobileActionType | SetMainProjectsActionType
 
 
 
 
 let initialState: InitialProjectsStateTypes = {
    projects: [] as Array<ProjectType>,
+   projectsMain: [] as Array<ProjectType>,
    pageSize: 16, //количество элементов на странице
    totalProjectCount: 0, //количество элементов всего
    currentPage: 1,
@@ -144,6 +150,11 @@ const projectsReducer = (state = initialState, action: ProjectsActions): Initial
       case SET_PROJECTS: {
          return {
             ...state, projects: action.payload
+         }
+      }
+      case SET_MAIN_PROJECTS: {
+         return {
+            ...state, projectsMain: action.payload
          }
       }
       case TOTAL_COUNT: {
@@ -294,7 +305,12 @@ export const collapsedCategoryListMobileAction = (collapsedCategoryListMobile: b
       payload: collapsedCategoryListMobile,
    }
 }
-
+export const setMainProjects = (projects: Array<ProjectType>): SetMainProjectsActionType => {
+   return{
+      type: SET_MAIN_PROJECTS,
+      payload: projects,
+   }
+}
 
 
 
@@ -323,13 +339,24 @@ export const getProjectsThunkCreator = (currentPage: number, pageSize: number): 
    dispatch(selectPage(currentPage)); //меняем в state активную страницу
    //тут мы вызываем функцию которая отвечает за получение данных с сервера
    let data = await projectsAPI.getProjects(currentPage, pageSize);
-
    if (data) {
       dispatch(setProjects(data.data))
       dispatch(setTotalCount(Number(data.headers['x-wp-total']))) //общее количество всех записей получаем из заголовка запроса параметра x-wp-total
       dispatch(selectFetch(false)); //когда приходит ответ с сервера убираем прелоадер
    }
+}
 
+
+export const getMainProjectsThunkCreator = (currentPage: number, pageSize: number): ThunkType => async (dispatch: DispatchType) => {
+   // console.log(getState())
+   dispatch(selectFetch(true)); //показываем прелоадер
+   dispatch(selectPage(currentPage)); //меняем в state активную страницу
+   //тут мы вызываем функцию которая отвечает за получение данных с сервера
+   let data = await projectsAPI.getProjects(currentPage, pageSize);
+   if (data) {
+      dispatch(setMainProjects(data.data))
+      dispatch(selectFetch(false)); //когда приходит ответ с сервера убираем прелоадер
+   }
 }
 
 
@@ -357,7 +384,6 @@ export const getCategoryProjectsThunkCreator = (catSlug: string, currentPage: nu
 
    }
    dispatch(selectFetch(false)); //когда приходит ответ с сервера убираем прелоадер
-
 }
 
 

@@ -5,6 +5,11 @@
     .contain
         max-width: 992px
 
+    .mainItem
+        padding: 4rem 0
+        .logoCode_1
+            font-size: 8px
+
 
 @media only screen and (max-width : 992px)
     //
@@ -26,6 +31,15 @@
             font-size: 16px
             margin-left: 135px
 
+    .aboutBlock
+        font-size: 18px
+        margin-top: 5rem
+        .top
+            span
+                font-size: 4rem
+
+    .mySkills
+        margin-top: 6rem
     //.categoryList
     //    font-size: 16px
     //
@@ -110,6 +124,12 @@
         //    &:last-child
         //        margin-bottom: 0
 
+    .aboutBlock
+        font-size: 16px
+
+    .listImg_1
+        li
+            margin-bottom: 5px
 
 
 @media only screen and (max-width : 480px)
@@ -126,7 +146,26 @@
             margin-left: 0
             margin-top: 10px
 
-
+    .wrapItemsSkills
+        flex-wrap: wrap
+        justify-content: center
+        .itemSkills
+            width: 50%
+            margin-bottom: 30px
+            &:last-child
+                margin-bottom: 0
+                width: 100%
+        .listImg_1
+            max-width: 300px
+            margin-left: auto
+            margin-right: auto
+            //display: flex
+            //flex-wrap: wrap
+            //justify-content: center
+            li
+                justify-content: center
+                //padding: 0 15px
+                //margin-right: 15px
 
 @media only screen and (min-width : 768px)
     .categoryListWrap

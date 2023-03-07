@@ -16,10 +16,15 @@ interface PropsType{
 
 const Header: React.FC<PropsType> = (props) => {
 
+   // console.log(props)
    let location = useLocation();
 
+   let delay = 0
    let menuElements = props.menuObj.map(
-      (li, index) => <li key={index}><span onClick={()=>{props.setShowHeader(false)}}><NavLink onClick={props.yesChangeAnimTopPanel} to={li.href} className={({isActive}) => isActive ? '_active' : ''}>{li.name}</NavLink></span></li>
+      (li, index) => {
+         delay += 200
+         return <li key={index}><span onClick={()=>{props.setShowHeader(false)}}><NavLink onClick={props.yesChangeAnimTopPanel} to={li.href} className={({isActive}) => isActive ? '_active' : ''}>{li.name}</NavLink></span></li>
+      }
    )
 
    return <>
@@ -44,11 +49,10 @@ const Header: React.FC<PropsType> = (props) => {
             {/*<img className={location.pathname != '/' ? 'logo_1' : 'logo_1 _hide'} src={logoSrc} alt="logo"/>*/}
             <Logo_1 addClass={location.pathname == '/' && !props.showHeader ? '_hide' : ''}/>
 
-
             <nav className={'menu_1'}>
                <ul>
                   {menuElements}
-                  <li className={props.showContacts ? "_active" : ''} onClick={()=>{props.setShowContacts(!props.showContacts)}}><span><a>Контакты</a></span></li>
+                  <li className={props.showContacts ? "_active" : ""} data-delay={delay+200} onClick={()=>{props.setShowContacts(!props.showContacts)}}><span><a>Контакты</a></span></li>
                </ul>
             </nav>
             <div className={props.showHeader ? "burgerButton _active" : "burgerButton"} onClick={()=>{props.setShowHeader(!props.showHeader)}}><span></span></div>

@@ -2,10 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="487b390f-81d4-45fe-87fa-1d64072de4dc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/utils/lazyAnimation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Gallery_1/Gallery_1.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Gallery_1/Gallery_1.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/HeaderContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/HeaderContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PageMain/PageMain.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageMain/PageMain.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Projects/Project/Project.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Projects/Project/Project.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Projects/Projects.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Projects/Projects.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Projects/Projects.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Projects/Projects.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Projects/ProjectsContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Projects/ProjectsContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/Footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Footer/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/Logo_1/Logo_1.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Logo_1/Logo_1.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/Preloader/Preloader.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Preloader/Preloader.module.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/projects-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/projects-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_media.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_media.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_vars.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_vars.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/main.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/main.sass" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +58,34 @@
       <recent name="D:\REACT\projects\webcustom_typescript\src\types\SliderToggle" />
     </key>
   </component>
+  <component name="RunManager" selected="npm.start">
+    <configuration name="eject" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="eject" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.eject" />
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -56,7 +99,29 @@
       <workItem from="1675074335691" duration="33152000" />
       <workItem from="1675163623556" duration="6485000" />
       <workItem from="1675291397950" duration="685000" />
-      <workItem from="1675419330874" duration="2877000" />
+      <workItem from="1675419330874" duration="4111000" />
+      <workItem from="1675605526654" duration="35000" />
+      <workItem from="1675858578078" duration="6612000" />
+      <workItem from="1676021441688" duration="24000" />
+      <workItem from="1676301286675" duration="4487000" />
+      <workItem from="1676375191529" duration="1176000" />
+      <workItem from="1676378296992" duration="1235000" />
+      <workItem from="1676468993431" duration="2250000" />
+      <workItem from="1676637595088" duration="982000" />
+      <workItem from="1676718959652" duration="7845000" />
+      <workItem from="1676884723387" duration="1846000" />
+      <workItem from="1676916530487" duration="626000" />
+      <workItem from="1676975060207" duration="12598000" />
+      <workItem from="1677068047933" duration="11483000" />
+      <workItem from="1677099394097" duration="9584000" />
+      <workItem from="1677141328068" duration="6153000" />
+      <workItem from="1677236453303" duration="699000" />
+      <workItem from="1677507612935" duration="5082000" />
+      <workItem from="1677527545004" duration="7847000" />
+      <workItem from="1677580825983" duration="7558000" />
+      <workItem from="1677703760020" duration="730000" />
+      <workItem from="1677746614061" duration="1830000" />
+      <workItem from="1678136603109" duration="3660000" />
     </task>
     <servers />
   </component>
@@ -79,7 +144,6 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/common/Popup/Popup.tsx</url>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

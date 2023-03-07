@@ -2,6 +2,46 @@ import axios, {AxiosResponse} from 'axios';
 import {FormType, ProjectDetailType, ProjectType} from "../types/types";
 
 
+//Пример использования graphQL
+const url = 'https://rickandmortyapi.com/graphql'
+const test_graphql = (query: any) => {
+   return fetch(url,{
+      method: 'POST',
+      headers: {
+         "Content-type": "application/json"
+      },
+      body: JSON.stringify({ query: query })
+   }).then(res => res.json())
+}
+
+
+let eee = 3
+const test_request = `query test_characters($page: Int = ${eee}) {
+  characters(page: $page){
+    results {
+      id
+      name
+      image
+      status
+    }
+  }
+}`;
+
+// test_graphql(test_request).then(console.log)
+export const www = {
+   getTest() {
+      return test_graphql(test_request).then(({data}) => data.characters.results)
+   }
+}
+
+async function test_func_async(){
+   // const dataql = await test_graphql(test_request)
+   const dataql = await www.getTest()
+   console.log(dataql)
+}
+// test_func_async()
+
+
 // const instance = axios.create({
 //    withCredentials: true, //передаем дополнительный параметр (если мы авторизованны на перекрестном сайте то авторизация подтвердится)
 //    baseURL: 'https://web-custom.store/wp-json/wp/v2/', //подставляется автоматически где был baseUrl
@@ -9,9 +49,6 @@ import {FormType, ProjectDetailType, ProjectType} from "../types/types";
 //    //    "API-KEY": "MfpixyiDWLmcet2GX7bjqjiPY9mpbtmG" //все запросы кроме get требуют ключ
 //    // }
 // })
-
-
-
 
 const instanceWebcustomForm = axios.create({
    withCredentials: true, //передаем дополнительный параметр (если мы авторизованны на перекрестном сайте то авторизация подтвердится)
@@ -23,8 +60,6 @@ const instanceWebcustomForm = axios.create({
       // 'Content-Type': 'application/json'
    },
 })
-
-
 
 const instanceWebcustom = axios.create({
    withCredentials: true, //передаем дополнительный параметр (если мы авторизованны на перекрестном сайте то авторизация подтвердится)
@@ -71,7 +106,7 @@ export const projectsAPI = {
 
       return instanceWebcustom.get<ProjectDetailType>(`posts/${projectSlug}`, {signal: abortRequestProjectsDetail.signal}).then(response => response.data).catch(()=>{
          if (abortRequestProjectsDetail.signal.aborted) {
-            console.log('отмена завроса проекта детально');
+            console.log('отмена запроса проекта детально');
          } else {
             console.error('ошибка при запросе проекта детально');
             window.localStorage.setItem('not_found', 'true');

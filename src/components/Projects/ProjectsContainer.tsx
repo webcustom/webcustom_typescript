@@ -9,7 +9,7 @@ import {
    searchStringAction,
    getCategoryProjectsThunkCreator,
    categoryProjectsAction,
-   selectFetch, inputSearchAutofocusAction, collapsedCategoryListMobileAction,
+   selectFetch, inputSearchAutofocusAction, collapsedCategoryListMobileAction, getMainProjectsThunkCreator,
 } from "../../redux/projects-reducer";
 import {getProjectsFilter} from "../../redux/projects-selectors";
 import Preloader from "../common/Preloader/Preloader";
@@ -22,6 +22,7 @@ import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 // @ts-ignore (typescript игнорирует следующую строку)
 import SlideToggle from "react-slide-toggle";
+import {lazyAnimaton} from "../../utils/lazyAnimation";
 
 
 
@@ -208,7 +209,7 @@ const ProjectsContainer: React.FC = () => {
 
             <AnimatedPage initial={initialBox} exit={exitBox} >
 
-               <p className={'title_1'}>Портфолио</p>
+               <p className={'title_1'}>Мои работы</p>
                <div className="projectsControlPanel">
 
 

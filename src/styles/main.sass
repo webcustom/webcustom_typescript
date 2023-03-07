@@ -73,6 +73,7 @@ img
     max-width: 1170px
     padding: 0 15px
     margin: 0 auto
+    width: 100%
 //border: 1px solid $color_2
 
 .wrapper
@@ -294,10 +295,20 @@ img
         list-style-type: none
     li
         margin-right: 5rem
+        &._lazyAnimation
+            opacity: 0
+            transform: translate(0, -20px)
+        &._animGo
+            transition: opacity 1s, transform 1s
+            opacity: 1
+            transform: translate(0,0)
+        //&:nth-child(2)
+        //    transition-delay: .2s
+        //&:nth-child(3)
+        //    transition-delay: .4s
         &:last-child
             margin-right: 0
-        //    &._active
-        //        color: yellow !important
+
     a
         cursor: pointer
         transition: color .15s
@@ -756,29 +767,29 @@ textarea.input_1
 
 .mainItem
     //border: 1px solid red
-    max-width: 625px
-    margin: -15% auto 0
+    max-width: 398px
+    //margin: 0 auto 0
     position: relative
-    padding: 12rem 0 10rem
-    .text
-        font-size: 20px
-        margin-top: 20px
-        transform: translate3d(0, 0, 0)
-        //font-family: RussoOne
-        //font-weight: 700
-        opacity: 1
-        animation: animText 2s 2 alternate ease-in-out -2s
-        //animation-play-state: paused
-        //animation-iteration-count: 1
-        //animation-delay: 1s
-        margin-top: -25px
-        margin-left: 200px
-        a
-            color: $color_2
-            font-weight: 700
-            transition: color .15s
-            &:hover
-                color: darken($color_2, 10%)
+    padding: 5rem 0 5rem
+    //.text
+    //    font-size: 20px
+    //    //margin-top: 20px
+    //    transform: translate3d(0, 0, 0)
+    //    //font-family: RussoOne
+    //    //font-weight: 700
+    //    opacity: 1
+    //    animation: animText 2s 2 alternate ease-in-out -2s
+    //    //animation-play-state: paused
+    //    //animation-iteration-count: 1
+    //    //animation-delay: 1s
+    //    margin-top: -25px
+    //    margin-left: 200px
+    //    a
+    //        color: $color_2
+    //        font-weight: 700
+    //        transition: color .15s
+    //        &:hover
+    //            color: darken($color_2, 10%)
 
 
 @keyframes animText
@@ -858,7 +869,7 @@ textarea.input_1
                     opacity: 1
                     transform: translate3d(0, 0, -10em) scale(1)
     .gear
-        width: 17em
+        width: 12em
         //width: 28.5%
         position: relative
         transition: transform 1.5s, opacity 1s
@@ -883,13 +894,12 @@ textarea.input_1
         filter: blur(5px)
         //display: none
     .textLogo
-        font-family: Whittle
-        font-size: 6em
+        font-family: $whi
+        font-size: 4em
         letter-spacing: .08em
         margin-left: -1.8em
         position: relative
         margin-top: 0.1em
-        position: relative
         //perspective: 9999px
         //transform-style: preserve-3d
         //top: -.08em
@@ -972,22 +982,16 @@ textarea.input_1
     background-color: #2A263E
     width: 100%
     top: 0
-    // display: none
     right: 0
     overflow: auto
     height: 100%
     min-height: 100vh
     transform: translate3d(0,100%,0)
-    //max-width: 400px
     transition: transform .7s, opacity .5s, box-shadow 1s
     padding-top: 100px
-    //transform: scale(0)
     transform-origin: center
-    //opacity: 0
     box-shadow: inset 0 0px 200px 40px rgba(#0A000E, 1)
     &._show
-        //transform: //scale(1)
-        //opacity: 1
         transform: translate3d(0,0,0)
 
 
@@ -1013,47 +1017,218 @@ textarea.input_1
     font-size: 25px
     li
         margin-bottom: 20px
-        //display: inline-block
-        //border: 1px solid red
-        //>span
-            //border: 1px solid blue
     ._active
         color: $color_2
         pointer-events: none
-//.closeIcon
-//    position: relative
-//    width: 36px
-//    height: 36px
-//    cursor: pointer
-//    display: block
-//    &:before
-//        content: ''
-//        width: 100%
-//        height: 4px
-//        background: #000
-//        transition: all 0.3s
-//        backface-visibility: hidden
-//        display: block
-//        position: absolute
-//        top: 50%
-//        left: 50%
-//        transform: translate(-50%,-50%) rotate(45deg)
-//        border-radius: 5px
-//    &:after
-//        content: ''
-//        width: 100%
-//        height: 4px
-//        background: #000
-//        transition: all 0.3s
-//        backface-visibility: hidden
-//        display: block
-//        // transform: rotate(-45deg)
-//        position: absolute
-//        top: 50%
-//        left: 50%
-//        transform: translate(-50%,-50%) rotate(-45deg)
-//        border-radius: 5px
-//
+
+
+
+
+
+
+
+
+
+.aboutBlock
+    font-size: 20px
+    //border: 1px solid red
+    //max-width: 900px
+    margin: 7rem auto 0
+    //max-width: 1170px
+    text-align: center
+    .top
+        //font-size: 3rem
+        span
+            font-size: 5rem
+            font-weight: 800
+            display: block
+            color: $color_2
+    .bottom
+        margin-top: 10px
+        //span
+            //color: $color_2
+        //    font-size: 3rem
+        //    display: block
+
+.mainTop
+    //border-bottom: 3px solid $color_2
+    display: flex
+    justify-content: center
+    //margin-top: 5rem
+    position: relative
+    &:before
+        content: ''
+        position: absolute
+        height: 100%
+        width: 400%
+        left: 50%
+        transform: translate(-50%,0)
+        background-color: rgba($color_2, .1)
+        border-bottom: 1px solid rgba($color_2, .5)
+        border-top: 1px solid rgba($color_2, .5)
+    &._lazyAnimation
+        &:before
+            opacity: 0
+            width: 0
+        &._animGo
+            &:before
+                transition: width 3s, opacity 1s
+                width: 400%
+                opacity: 1
+
+.aboutText
+    max-width: 800px
+    margin: 0 auto
+    &._lazyAnimation
+        opacity: 0
+        transform: translate(0,50px)
+    &._animGo
+        transition: opacity 1s, transform 1s
+        opacity: 1
+        transform: translate(0,0)
+
+.wrapItemsSkills
+    display: flex
+    justify-content: space-between
+    //margin-top: 3rem
+    max-width: 800px
+    margin: 3rem auto 0
+    &._lazyAnimation
+        .itemSkills
+            opacity: 0
+            transform: translate(0,50px)
+            //&:first-child
+                //transition-delay: 0
+                //transform: translate(-50px,0)
+            &:nth-child(2)
+                transition-delay: .2s
+                //transform: translate(0,50px)
+            &:nth-child(3)
+                transition-delay: .4s
+                //transform: translate(50px,0)
+    &._animGo
+        .itemSkills
+            transition: opacity 1s, transform 1s
+            opacity: 1
+            transform: translate(0,0)
+            //&:first-child
+            //    transform: translate(0,0)
+            //&:nth-child(2)
+            //    transform: translate(0,0)
+            //&:nth-child(3)
+            //    transform: translate(0,0)
+
+.mySkills
+    margin-top: 8rem
+
+.title_3
+    font-size: 3rem
+    font-weight: 800
+    text-align: left
+    color: $color_2
+    display: flex
+    justify-content: center
+    align-items: center
+    white-space: nowrap
+    span
+        margin-right: 20px
+        margin-left: 20px
+    &:before
+        content: ''
+        height: 1px
+        width: 100%
+        background-color: $color_2
+        display: block
+        top: 2px
+        position: relative
+    &:after
+        content: ''
+        height: 1px
+        width: 100%
+        background-color: $color_2
+        display: block
+        top: 2px
+        position: relative
+    &._lazyAnimation
+        span
+            opacity: 0
+            transform: translate(0,-50px)
+        &:before, &:after
+            width: 0
+    &._animGo
+        span
+            opacity: 1
+            transform: translate(0,0)
+            transition: opacity 1s, transform 1s
+        &:before, &:after
+            transition: width 3s
+            width: 100%
+
+.itemSkills
+    .title
+        margin-bottom: 20px
+        font-weight: 600
+        //color: $color_2
+
+.listImg_1
+    text-align: left
+    list-style-type: none
+    li
+        margin-bottom: 10px
+        &:last-child
+            margin-bottom: 0
+
+.itemImgText_1
+    display: flex
+    align-items: center
+    .img
+        //border: 1px solid red
+        width: 3rem
+        height: 3rem
+        position: relative
+        margin-right: 10px
+        &._t2
+            svg
+                max-width: 85%
+        svg
+            position: absolute
+            left: 50%
+            top: 50%
+            transform: translate(-50%,-50%)
+            //max-width: 90%
+            max-height: 100%
+            width: 100%
+
+
+
+
+.myWorks
+    margin-top: 8rem
+    padding-bottom: 5rem
+    .title_3
+        margin-bottom: 5rem
+    .button_1
+        &._lazyAnimation
+            transform: translate(0, 50px)
+            opacity: 0
+        &._animGo
+            opacity: 1
+            transform: translate(0,0)
+            transition: opacity 1s, transform 1s
+
+
+.mainWorks
+    min-height: 385px
+    position: relative
+    //border: 1px solid red
+
+
+
+
+
+
+
+
 
 
 
