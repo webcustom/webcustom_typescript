@@ -2,24 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="487b390f-81d4-45fe-87fa-1d64072de4dc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/utils/lazyAnimation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/HeaderContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/HeaderContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PageMain/PageMain.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageMain/PageMain.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Projects/Project/Project.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Projects/Project/Project.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Projects/Projects.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Projects/Projects.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Projects/Projects.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Projects/Projects.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Projects/ProjectsContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Projects/ProjectsContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Footer/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Logo_1/Logo_1.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Logo_1/Logo_1.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Preloader/Preloader.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Preloader/Preloader.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/projects-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/projects-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/_media.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_media.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/_vars.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_vars.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/main.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/main.sass" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -121,7 +103,7 @@
       <workItem from="1677580825983" duration="7558000" />
       <workItem from="1677703760020" duration="730000" />
       <workItem from="1677746614061" duration="1830000" />
-      <workItem from="1678136603109" duration="3660000" />
+      <workItem from="1678136603109" duration="4044000" />
     </task>
     <servers />
   </component>
