@@ -21,7 +21,7 @@ const PageMain: React.FC = () => {
    let projectsMain = useTypedSelector(state => state.projectsPage.projectsMain);
    let isFetching = useTypedSelector(state => state.projectsPage.isFetching);
 
-   let [mainProjects, setMainProjects] = useState([])
+   // let [mainProjects, setMainProjects] = useState([])
    let [mainProjectsIObserver, setMainProjectsIObserver] = useState(false)
 
    let [logoAnimate, setLogoAnimate] = useState(false)
@@ -39,22 +39,6 @@ const PageMain: React.FC = () => {
 
    useEffect(() => {
       lazyAnimaton();
-
-      // setTimeout(function(){
-      //
-      //    let qqq = document.querySelectorAll('.menu_1')
-      //    qqq.forEach(function(element){
-      //       let children = element.querySelectorAll('li');
-      //       for(let child of children){
-      //          child.classList.remove('_lazyAnimation');
-      //          child.classList.remove('_animGo');
-      //       }
-      //    });
-      //    console.log(qqq)
-      // },1500)
-
-      // e.target.classList.remove('my-class');
-
       dispatch(getMainProjectsThunkCreator(1, 4))
    },[])
 
@@ -235,7 +219,7 @@ const PageMain: React.FC = () => {
                   <p className="title_3 _lazyAnimation _notDelay" data-delay='2300'><span>Последние работы</span></p>
                   <div className='mainWorks' ref={mainProjectsRef}>
                      {isFetching && <Preloader/>}
-                     {mainProjectsIObserver ? <Projects projects={projectsMain} time={200}/> : ''}
+                     {mainProjectsIObserver ? <Projects projects={projectsMain} time={200} page={'main'}/> : ''}
                   </div>
                   <NavLink to="/projects" className="button_1 _lazyAnimation _notDelay" data-delay='2500'>
                      <span>Смотреть все работы</span>

@@ -7,6 +7,7 @@ import {ProjectType} from "../../types/types";
 interface PropsType{
     projects: Array<ProjectType>
     time?: number
+    page?: string
 }
 
 
@@ -17,6 +18,9 @@ interface PropsType{
 
 
 const Projects: React.FC<PropsType> = React.memo(props => {
+
+    console.log(props)
+
     let timeLimit = props.time ? props.time : 100
     let time = 200
     let projectElements = props.projects.map(
@@ -26,7 +30,7 @@ const Projects: React.FC<PropsType> = React.memo(props => {
        }
     );
     return <>
-         <div className={styles.projectsWrap}>
+         <div className={props.page === 'main' ? `${styles.projectsWrap} ${styles._main}` : styles.projectsWrap}>
             {projectElements}
          </div>
          <br/>

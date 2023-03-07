@@ -2,19 +2,13 @@
     display: flex
     flex-wrap: wrap
     margin: 0 auto
-    //border: 3px solid yellow
     >a
         width: 22.7%
         margin-right: 3%
         margin-bottom: 30px
         &:nth-child(4n+4)
             margin-right: 0
-    //&._mainPage
-    //   >a
-    //       width: 31%
-    //       margin-right: 3.5%
-    //       &:nth-child(3n+3)
-    //           margin-right: 0
+
 
 
 @media only screen and (max-width : 992px)
@@ -26,7 +20,10 @@
                 margin-right: 3%
             &:nth-child(3n+3)
                 margin-right: 0
-
+        &._main
+            >a
+                &:nth-child(4)
+                    display: none
 
 
 
@@ -47,12 +44,7 @@
                 margin-right: 3%
             &:nth-child(2n+2)
                 margin-right: 0
-        //&._mainPage
-        //    >a
-        //        width: 48.5%
-        //        margin-right: 3%
-        //        margin-bottom: 20px
-        //        &:nth-child(3n+3)
-        //            margin-right: 3%
-        //        &:nth-child(2n+2)
-        //            margin-right: 0
+        &._main
+            >a
+                &:nth-child(4)
+                    display: block
